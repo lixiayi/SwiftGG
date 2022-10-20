@@ -27,13 +27,11 @@ class BaseNavigationController: UINavigationController {
     }
     
     
-//    override func popViewController(animated: Bool) -> UIViewController? {
-//        
-//        let vc = super.popViewController(animated: animated)
-//        vc?.hidesBottomBarWhenPushed = false
-//        print("[GGDebug] -------popvc----->\(String(describing: vc))");
-//        return vc
-//    }
+    override func popViewController(animated: Bool) -> UIViewController? {
+        let vc = super.popViewController(animated: animated)
+        print("[GGDebug] -------popvc----->\(String(describing: vc))");
+        return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +39,4 @@ class BaseNavigationController: UINavigationController {
         self.navigationBar.tintColor = UIColor.blue
         self.navigationBar.setBackgroundImage(UIImage(named: "login_bgview"), for: .default)
     }
-    
-    fileprivate lazy var navBar:UINavigationBar = {
-        
-        let bar = UINavigationBar(frame: CGRectMake(0, 0, kScreenWidth, CGFloat(kStatusBarH + kNavgationBarHeight)))
-//        bar.tintColor = .black
-        bar.setBackgroundImage(UIImage(named: "login_bgview"), for: .default)
-
-        return bar
-    }()
-    
-    
-    
 }

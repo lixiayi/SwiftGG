@@ -15,7 +15,7 @@ class FirstViewController: BaseVC {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.red
         
-        self.navigationItem.title = "第一个"
+        self.navigationItem.title = "第一个VC"
      
         let btn:UIButton = UIButton(type:.custom)
         btn.frame = CGRectMake(self.view.bounds.size.width/2 - 60, 200, 120, 44)
@@ -29,7 +29,6 @@ class FirstViewController: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        
     }
     
     @objc func btnAction(sender:UIButton) {
