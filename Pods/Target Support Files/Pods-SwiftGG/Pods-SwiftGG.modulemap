@@ -1,0 +1,6 @@
+module Pods_SwiftGG {
+  umbrella header "Pods-SwiftGG-umbrella.h"
+
+  export *
+  module * { export * }
+}
