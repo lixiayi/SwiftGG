@@ -147,9 +147,9 @@
 		201C7CB1258DD0A80081BF3E /* SwiftGG */ = {
 			isa = PBXGroup;
 			children = (
+				20F265022902F2FA00DFCB43 /* BaseClass */,
 				20B5AA752900482000208992 /* Constant */,
 				20B5AA63290032CB00208992 /* Class */,
-				20B5AA5E29002C2C00208992 /* Base */,
 				20DDD5CB25AB4194002E5E00 /* Network */,
 				20F4E84625A9F78B004F2FC5 /* Login */,
 				2042E7AF25A9F2A200F8BDC4 /* Header */,
@@ -225,16 +225,6 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
-		20B5AA5E29002C2C00208992 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				20B5AA5F29002C5100208992 /* BaseNavigationController.swift */,
-				20B5AA6129002DC900208992 /* BaseTabBarController.swift */,
-				20B5AA6E2900369300208992 /* BaseVC.swift */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
 		20B5AA63290032CB00208992 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +253,16 @@
 				20DDD5CF25AB41BF002E5E00 /* NetworkTool.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		20F265022902F2FA00DFCB43 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				20B5AA5F29002C5100208992 /* BaseNavigationController.swift */,
+				20B5AA6129002DC900208992 /* BaseTabBarController.swift */,
+				20B5AA6E2900369300208992 /* BaseVC.swift */,
+			);
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		20F4E84625A9F78B004F2FC5 /* Login */ = {
