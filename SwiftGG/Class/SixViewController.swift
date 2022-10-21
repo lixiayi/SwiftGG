@@ -14,6 +14,11 @@ class SixViewController: BaseVC {
 
         self.view.backgroundColor = UIColor.orange
         
+        //添加导航栏左侧返回按钮
+        guard let image = UIImage(named: "back")  else { return  }
+        let rederImage = image.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: rederImage, style: .plain, target: self, action: #selector(backAction))
+        
         let btn:UIButton = UIButton(type:.custom)
         btn.frame = CGRectMake(self.view.bounds.size.width/2 - 60, 200, 120, 44)
         btn.backgroundColor = UIColor.blue

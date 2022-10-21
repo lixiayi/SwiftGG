@@ -32,11 +32,12 @@ class FiveViewController: BaseVC {
         
         self.navigationItem.title = "第五个"
 
+        //添加导航栏左侧返回按钮
         guard let image = UIImage(named: "back")  else { return  }
         let rederImage = image.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: rederImage, style: .plain, target: self, action: #selector(backAction))
         
-        
+        //添加导航栏右侧返回按钮
         guard let image1 = UIImage(named: "more")  else { return  }
         let renderImage = image1.withRenderingMode(.alwaysOriginal)
         

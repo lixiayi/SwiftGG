@@ -12,7 +12,11 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //内容从导航栏底部开始
         self.edgesForExtendedLayout = UIRectEdge.bottom
+        
+        //隐藏系统导航栏的back按钮
+        self.navigationItem.hidesBackButton = true
     }
     
 
