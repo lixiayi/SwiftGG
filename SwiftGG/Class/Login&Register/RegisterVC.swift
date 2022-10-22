@@ -1,19 +1,18 @@
 //
-//  FourViewController.swift
+//  RegisterVC.swift
 //  SwiftGG
 //
-//  Created by stoicer on 2022/10/19.
+//  Created by stoicer on 2022/10/22.
 //
 
 import UIKit
 
-class FourViewController: BaseVC {
+class RegisterVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.gray
     }
     
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstViewController: BaseVC {
+class HomeViewController: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,28 +15,13 @@ class FirstViewController: BaseVC {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.red
         
-        self.navigationItem.title = "第一个VC"
-     
-        let btn:UIButton = UIButton(type:.custom)
-        btn.frame = CGRectMake(self.view.bounds.size.width/2 - 60, 200, 120, 44)
-        btn.backgroundColor = UIColor.blue
-        btn.setTitle("popvc", for: .normal)
-        btn.addTarget(self, action: #selector(btnAction(sender:)), for: .touchUpInside)
-        self.view.addSubview(btn)
-        
+        self.navigationItem.title = "首页"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
-    @objc func btnAction(sender:UIButton) {
-        print("点击了按钮")
-        let vc = FiveViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-
     
     // MARK: - Navigation
 

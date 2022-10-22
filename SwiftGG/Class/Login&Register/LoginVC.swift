@@ -1,19 +1,18 @@
 //
-//  ThirdViewController.swift
+//  LoginVC.swift
 //  SwiftGG
 //
-//  Created by stoicer on 2022/10/19.
+//  Created by stoicer on 2022/10/22.
 //
 
 import UIKit
 
-class ThirdViewController: BaseVC {
+class LoginVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.green
     }
     
 

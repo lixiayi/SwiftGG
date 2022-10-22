@@ -28,23 +28,23 @@ class BaseTabBarController: UITabBarController,UITabBarControllerDelegate {
     }
     
     func addChildVc() {
-        let firstVC:FirstViewController = FirstViewController()
+        let firstVC:HomeViewController = HomeViewController()
         let firstNav = 
         BaseNavigationController(rootViewController: firstVC)
         self.setTabBarItem(imageName: "btn_column_normal", selImageName: "btn_column_selected", vc: firstVC as BaseVC, title: "列表")
     
         
-        let secondVC:SecondViewController = SecondViewController()
+        let secondVC:ChatViewController = ChatViewController()
         let secondNav = BaseNavigationController.init(rootViewController: secondVC)
         self.setTabBarItem(imageName: "btn_home_normal", selImageName: "btn_home_selected", vc: secondVC as BaseVC, title: "主页")
         
         
         
-        let thirdVC:ThirdViewController = ThirdViewController()
+        let thirdVC:CloudViewController = CloudViewController()
         let thirdNav = BaseNavigationController.init(rootViewController: thirdVC)
         self.setTabBarItem(imageName: "btn_live_normal", selImageName: "btn_live_selected", vc: thirdVC as BaseVC,title: "直播")
         
-        let fourVC:FourViewController = FourViewController();
+        let fourVC:MeViewController = MeViewController();
         let fourNav = BaseNavigationController.init(rootViewController: fourVC)
         self.setTabBarItem(imageName: "btn_user_normal", selImageName: "btn_user_selected", vc: fourVC as BaseVC,title: "我的")
         

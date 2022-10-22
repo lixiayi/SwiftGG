@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  MeViewController.swift
 //  SwiftGG
 //
 //  Created by stoicer on 2022/10/19.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SecondViewController: BaseVC {
+class MeViewController: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.blue
+        self.view.backgroundColor = UIColor.gray
     }
     
 
