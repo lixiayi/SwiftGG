@@ -32,9 +32,8 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //设置导航栏的颜色，背景图片
-        self.navigationBar.tintColor = UIColor.blue
-        self.navigationBar.setBackgroundImage(UIImage(named: "login_bgview"), for: .default)
+        //设置导航栏的颜色
+        self.navigationBar.barTintColor = UIColor.colorWithHex(hex:"#ccffcc")
         
         //自定义全屏右滑pop手势 https://www.jianshu.com/p/2e8d332c60ff?_t_t_t=0.9927985240701174
         guard let systemPopGesture = interactivePopGestureRecognizer else { return  }
