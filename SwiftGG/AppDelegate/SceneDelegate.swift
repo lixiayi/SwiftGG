@@ -29,8 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            let rootVC = storyBoard.instantiateViewController(identifier: "Main")
 //            let nav = UINavigationController(rootViewController: rootVC)
         
-        let tabVC = RootViewController()
-            window?.rootViewController = tabVC;
+//        let tabVC = RootViewController()
+//            window?.rootViewController = tabVC;
+//            window?.makeKeyAndVisible()
+        
+        let loginViewController:LoginVC = LoginVC()
+            window?.rootViewController = loginViewController;
             window?.makeKeyAndVisible()
         
             guard let _ = (scene as? UIWindowScene) else { return }
