@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class LoginVC: BaseVC {
     
@@ -21,7 +22,7 @@ class LoginVC: BaseVC {
     fileprivate lazy var helloLabel:UILabel = {
         
         let label = UILabel(frame: CGRect(x: 16, y: 144, width: 160, height: 44))
-        label.text = "欢迎来到小慧"
+        label.text = "欢迎来到GG"
         label.font = UIFont.systemFont(ofSize: 22)
         label.textAlignment = .left
         label.textColor = UIColor.black
@@ -74,7 +75,7 @@ class LoginVC: BaseVC {
         btn.setTitle("获取验证码", for: .normal)
         btn.frame = CGRect(x: 16, y: 400, width: kScreenWidth - 32, height: 50)
         btn.backgroundColor = UIColor.blue
-        btn.cornerWith(rectCorner: UIRectCorner.allCorners, radius: 10)
+        btn.cornerWith(rectCorner: UIRectCorner.allCorners, radius: 22)
         btn.addTarget(self, action: #selector(sendCodeAction), for: .touchUpInside)
         return btn
     }()
@@ -108,30 +109,30 @@ class LoginVC: BaseVC {
         
         let phoneNum:String = self.phoneTextField.textField.text!;
     
-        do
+        let isValidPhone:Bool = GGRegular.isPhoneNumber(phoneNumber: phoneNum)
+        if (!isValidPhone)
         {
-            let isValidPhone:Bool = GGRegular.isPhoneNumber(phoneNumber: phoneNum)
-            if (!isValidPhone)
-            {
-                print("不是有效的电话号码")
-            }
-            
-        }
-        catch
-        {
-            print("验证手机号码错误")
+            HUD.flash(.label("不是有效的电话号码"), delay: 1.5)
+            return
         }
         
-    }
+        if (!agreeBtn.isSelected)
+        {
+            HUD.flash(.label("请勾选用户协议及隐私声明"), delay: 1.5)
+            return
+        }
+        
+        //发送验证码
+        let paramDict:[String:String] = ["mobile":phoneNum]
+        NetworkTool.sendSmsCode(url: GG_LOGIN_BASE_URL + GG_LOGIN_SEND_CODE, parameters: paramDict) { data in
+            
+            HUD.flash(.labeledSuccess(title: "验证码发送成功", subtitle: ""), delay: 1)
+            
+        } failCallBack: { error in
+            
+            HUD.flash(.label(error["message"] as? String), delay: 1)
+        };
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

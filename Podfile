@@ -6,5 +6,6 @@ target 'SwiftGG' do
  pod 'HandyJSON'
  pod 'MJRefresh'
  pod 'Kingfisher'
+ pod 'PKHUD', '~> 5.0'
 end
 
