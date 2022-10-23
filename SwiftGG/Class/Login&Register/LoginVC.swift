@@ -110,16 +110,15 @@ class LoginVC: BaseVC {
     
         do
         {
-            let pattern = "^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$"
-            let reg : NSRegularExpression = try NSRegularExpression(pattern: pattern)
-            let result : NSTextCheckingResult? = reg.firstMatch(in: phoneNum, range: NSMakeRange(0, phoneNum.count))
-            
-            if result == nil
+            let isValidPhone:Bool = GGRegular.isPhoneNumber(phoneNumber: phoneNum)
+            if (!isValidPhone)
             {
                 print("不是有效的电话号码")
             }
+            
         }
-        catch {
+        catch
+        {
             print("验证手机号码错误")
         }
         
