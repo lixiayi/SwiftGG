@@ -9,21 +9,32 @@ import UIKit
 
 class RegisterVC: BaseVC {
 
+    // MARK: - Life
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.white
+        
+        self.setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupUI() {
+        self.view.addSubview(backBtn)
     }
-    */
-
+    
+    // MARK: - Lazy
+    fileprivate lazy var backBtn:UIButton = {
+        let btn:UIButton = UIButton(type:.custom)
+        btn.frame = CGRectMake(16, 30, 22, 22)
+        btn.setBackgroundImage(UIImage(named: "icon_login_back"), for: .normal)
+        btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        self.view.addSubview(btn)
+        return btn
+    }()
+    
+    // MARK: - Actrion
+    @objc func backAction()
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

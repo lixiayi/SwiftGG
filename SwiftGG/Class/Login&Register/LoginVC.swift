@@ -42,7 +42,7 @@ class LoginVC: BaseVC {
     //我已阅读并同意选择圆框
     fileprivate lazy var agreeBtn:UIButton = {
         let btn = UIButton(type: .custom)
-        btn.frame = CGRect(x: 16, y: 300, width: 20, height: 20)
+        btn.frame = CGRect(x: 16, y: 280, width: 20, height: 20)
         btn.setBackgroundImage(UIImage(named: "login_uncheck"), for: .normal)
         btn.setBackgroundImage(UIImage(named: "login_check"), for: .selected)
         btn.addTarget(self, action: #selector(agreeBtnAction), for: .touchUpInside)
@@ -53,10 +53,10 @@ class LoginVC: BaseVC {
     fileprivate lazy var agreeLabel:UILabel = {
         
         let str = "我已阅读并同意《用户协议》及《隐私声明》"
-        let label = UILabel(frame: CGRect(x: 40, y: 300, width: 300, height: 20))
+        let label = UILabel(frame: CGRect(x: 40, y: 280, width: 300, height: 20))
         label.textAlignment = .left
         label.textColor = UIColor.gray
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 13)
         
         //设置attribute
         let attrStr: NSMutableAttributedString = NSMutableAttributedString(string: str)
@@ -73,14 +73,38 @@ class LoginVC: BaseVC {
        
         let btn = UIButton(type: .custom)
         btn.setTitle("获取验证码", for: .normal)
-        btn.frame = CGRect(x: 16, y: 400, width: kScreenWidth - 32, height: 50)
+        btn.frame = CGRect(x: 16, y: 350, width: kScreenWidth - 32, height: 50)
         btn.backgroundColor = UIColor.blue
         btn.cornerWith(rectCorner: UIRectCorner.allCorners, radius: 22)
         btn.addTarget(self, action: #selector(sendCodeAction), for: .touchUpInside)
         return btn
     }()
     
+    fileprivate lazy var pwdLoginBtn:UIButton = {
+        let btn:UIButton = UIButton(type:.custom)
+        btn.frame = CGRectMake(16, 420, 80, 22)
+        btn.setTitle("密码登录", for: .normal)
+        btn.setTitleColor(.gray, for: .normal)
+        btn.contentHorizontalAlignment = .left
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.addTarget(self, action: #selector(pwdLoginAction), for: .touchUpInside)
+        self.view.addSubview(btn)
+        return btn
+    }()
 
+    fileprivate lazy var regBtn:UIButton = {
+        let btn:UIButton = UIButton(type:.custom)
+        btn.frame = CGRectMake(kScreenWidth - 16 - 80, 420, 80, 22)
+        btn.setTitle("注册账号", for: .normal)
+        btn.setTitleColor(.gray, for: .normal)
+        btn.contentHorizontalAlignment = .right
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.addTarget(self, action: #selector(regAction), for: .touchUpInside)
+        self.view.addSubview(btn)
+        return btn
+    }()
+    
+    // MARK: - Life
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,14 +112,22 @@ class LoginVC: BaseVC {
         self.setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     
-    func setupUI() {
+    func setupUI()
+    {
         self.view.addSubview(logoImageView)
         self.view.addSubview(helloLabel)
         self.view.addSubview(phoneTextField)
         self.view.addSubview(agreeBtn)
         self.view.addSubview(agreeLabel)
         self.view.addSubview(codeBtn)
+        self.view.addSubview(pwdLoginBtn)
+        self.view.addSubview(regBtn)
         
     }
     
@@ -134,5 +166,15 @@ class LoginVC: BaseVC {
         };
 
     }
-
+    
+    @objc func pwdLoginAction()
+    {
+        print("密码登录")
+    }
+    
+    @objc func regAction()
+    {
+        let regVC: RegisterVC = RegisterVC()
+        self.navigationController?.pushViewController(regVC, animated: true)
+    }
 }

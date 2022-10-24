@@ -20,7 +20,7 @@ class GGTextFiledView : UIView {
     
     lazy var lineView : UIView = {
         let line = UIView(frame: CGRect(x: 0, y: frame.size.height - 1, width: frame.size.width, height: 1))
-        line.backgroundColor = UIColor.gray
+        line.backgroundColor = UIColor.colorWithHex(hex: "#999999")
         return line
     }()
     
