@@ -38,7 +38,7 @@
 		20F2650C2903981B00DFCB43 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F2650B2903981B00DFCB43 /* LoginVC.swift */; };
 		20F2650E2903986700DFCB43 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F2650D2903986700DFCB43 /* RegisterVC.swift */; };
 		20F4E84B25A9F7A1004F2FC5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F4E84925A9F7A1004F2FC5 /* LoginViewController.xib */; };
-		7FEF0B59EB0DE3A4422CFE18 /* libPods-SwiftGG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D64C4F4125E2E7939688BB /* libPods-SwiftGG.a */; };
+		8B4C6C1E07DF1C940B6004C9 /* Pods_SwiftGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63352F6435AE7D20A66FA1FE /* Pods_SwiftGG.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,9 +97,9 @@
 		20F2650B2903981B00DFCB43 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		20F2650D2903986700DFCB43 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		20F4E84925A9F7A1004F2FC5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		63352F6435AE7D20A66FA1FE /* Pods_SwiftGG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftGG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7F8023E9079DF74FBF478E /* Pods-SwiftGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftGG.debug.xcconfig"; path = "Target Support Files/Pods-SwiftGG/Pods-SwiftGG.debug.xcconfig"; sourceTree = "<group>"; };
 		BF5C542B9BA528C33AA1CC84 /* Pods-SwiftGG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftGG.release.xcconfig"; path = "Target Support Files/Pods-SwiftGG/Pods-SwiftGG.release.xcconfig"; sourceTree = "<group>"; };
-		C8D64C4F4125E2E7939688BB /* libPods-SwiftGG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftGG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FEF0B59EB0DE3A4422CFE18 /* libPods-SwiftGG.a in Frameworks */,
+				8B4C6C1E07DF1C940B6004C9 /* Pods_SwiftGG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +361,7 @@
 		6C38D28C72BEDD3725C4AEAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C8D64C4F4125E2E7939688BB /* libPods-SwiftGG.a */,
+				63352F6435AE7D20A66FA1FE /* Pods_SwiftGG.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				201C7CAB258DD0A80081BF3E /* Sources */,
 				201C7CAC258DD0A80081BF3E /* Frameworks */,
 				201C7CAD258DD0A80081BF3E /* Resources */,
-				69472711081BC6CC9BE8AA4F /* [CP] Copy Pods Resources */,
+				F10D704AD6CF4BF6318C3D6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,21 +527,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69472711081BC6CC9BE8AA4F /* [CP] Copy Pods Resources */ = {
+		F10D704AD6CF4BF6318C3D6D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftGG/Pods-SwiftGG-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -686,6 +686,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stoicer/Project/SwiftGG/SwiftGG/Header/SwiftGG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -740,6 +741,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stoicer/Project/SwiftGG/SwiftGG/Header/SwiftGG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

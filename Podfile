@@ -7,5 +7,9 @@ target 'SwiftGG' do
  pod 'MJRefresh'
  pod 'Kingfisher'
  pod 'PKHUD', '~> 5.0'
+ pod 'YYKit'
+ 
+ use_frameworks!
+ 
 end
 

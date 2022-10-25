@@ -7,6 +7,7 @@
 
 import UIKit
 import PKHUD
+import YYKit
 
 class LoginVC: BaseVC {
     
@@ -22,7 +23,7 @@ class LoginVC: BaseVC {
     fileprivate lazy var helloLabel:UILabel = {
         
         let label = UILabel(frame: CGRect(x: 16, y: 144, width: 160, height: 44))
-        label.text = "欢迎来到GG"
+        label.text = "欢迎来到 GG"
         label.font = UIFont.systemFont(ofSize: 22)
         label.textAlignment = .left
         label.textColor = UIColor.black
@@ -50,18 +51,35 @@ class LoginVC: BaseVC {
     }()
     
     //我已阅读并同意文本
-    fileprivate lazy var agreeLabel:UILabel = {
+    fileprivate lazy var agreeLabel:YYLabel = {
         
         let str = "我已阅读并同意《用户协议》及《隐私声明》"
-        let label = UILabel(frame: CGRect(x: 40, y: 280, width: 300, height: 20))
+        let label = YYLabel(frame: CGRect(x: 40, y: 280, width: 300, height: 20))
+        label.isUserInteractionEnabled = true
         label.textAlignment = .left
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 13)
         
         //设置attribute
-        let attrStr: NSMutableAttributedString = NSMutableAttributedString(string: str)
-        attrStr.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.blue], range: NSMakeRange(7, 6))
-        attrStr.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.blue], range: NSMakeRange(14, 6))
+        var attrStr: NSMutableAttributedString = NSMutableAttributedString(string: str)
+        
+        
+        // 包含点击事件，一定要是YYLabel
+        attrStr.setTextHighlight(NSRange(location: 7,length: 6), color: UIColor.blue, backgroundColor: UIColor.clear) { (view : UIView, str : NSAttributedString, range : NSRange , rect : CGRect) in
+            
+            let subStr = str.attributedSubstring(from: range)
+            //点击进入用户协议
+            HUD.flash(.label(subStr.string))
+
+        }
+
+        attrStr.setTextHighlight(NSRange(location: 14,length: 6), color: UIColor.red, backgroundColor: UIColor.clear) { (view : UIView, str : NSAttributedString, range : NSRange , rect : CGRect) in
+            let subStr = str.attributedSubstring(from: range)
+            //点击进入隐私声明
+            HUD.flash(.label(subStr.string))
+        }
+
+
         label.attributedText = attrStr
         
         return label

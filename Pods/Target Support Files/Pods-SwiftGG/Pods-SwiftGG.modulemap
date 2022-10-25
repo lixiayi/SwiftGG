@@ -1,4 +1,4 @@
-module Pods_SwiftGG {
+framework module Pods_SwiftGG {
   umbrella header "Pods-SwiftGG-umbrella.h"
 
   export *

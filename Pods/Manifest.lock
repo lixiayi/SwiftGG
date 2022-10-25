@@ -5,6 +5,9 @@ PODS:
   - MJRefresh (3.5.0)
   - PKHUD (5.3.0)
   - SwiftyJSON (5.0.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - MJRefresh
   - PKHUD (~> 5.0)
   - SwiftyJSON
+  - YYKit
 
 SPEC REPOS:
   trunk:
@@ -22,6 +26,7 @@ SPEC REPOS:
     - MJRefresh
     - PKHUD
     - SwiftyJSON
+    - YYKit
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -30,7 +35,8 @@ SPEC CHECKSUMS:
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: df204b757f101c0a48713da324f59f0f817dca9f
+PODFILE CHECKSUM: c53326ac8fe9675c2923361c3c6f8840360e2770
 
 COCOAPODS: 1.9.3
