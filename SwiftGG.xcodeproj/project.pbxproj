@@ -18,6 +18,7 @@
 		201C7CD5258DD0C10081BF3E /* SwiftGGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CD4258DD0C10081BF3E /* SwiftGGUITests.swift */; };
 		2025547E25A4A4D700776700 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025547D25A4A4D700776700 /* RefreshView.swift */; };
 		2025548A25A4A5E100776700 /* MJRefreshVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025548925A4A5E100776700 /* MJRefreshVC.swift */; };
+		202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C2ACE2909796900388081 /* GGWebViewController.swift */; };
 		204BC985259782000014C96B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC984259782000014C96B /* UIView+Extension.swift */; };
 		20B5AA6029002C5100208992 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5AA5F29002C5100208992 /* BaseNavigationController.swift */; };
 		20B5AA6229002DC900208992 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5AA6129002DC900208992 /* BaseTabBarController.swift */; };
@@ -77,6 +78,7 @@
 		2025547D25A4A4D700776700 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		2025548225A4A53300776700 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2025548925A4A5E100776700 /* MJRefreshVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshVC.swift; sourceTree = "<group>"; };
+		202C2ACE2909796900388081 /* GGWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGWebViewController.swift; sourceTree = "<group>"; };
 		204BC984259782000014C96B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		20B5AA5F29002C5100208992 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		20B5AA6129002DC900208992 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -279,9 +281,10 @@
 		20F265022902F2FA00DFCB43 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				20B5AA5F29002C5100208992 /* BaseNavigationController.swift */,
-				20B5AA6129002DC900208992 /* BaseTabBarController.swift */,
 				20B5AA6E2900369300208992 /* BaseVC.swift */,
+				20B5AA6129002DC900208992 /* BaseTabBarController.swift */,
+				202C2ACE2909796900388081 /* GGWebViewController.swift */,
+				20B5AA5F29002C5100208992 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				20B83BCC290549200007A64B /* GGRegular.swift in Sources */,
 				20B5AA6F2900369300208992 /* BaseVC.swift in Sources */,
 				201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */,
+				202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */,
 				201C7CB7258DD0A80081BF3E /* ViewController.swift in Sources */,
 				20B83BC82904DD020007A64B /* GGTextFiledView.swift in Sources */,
 				20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */,

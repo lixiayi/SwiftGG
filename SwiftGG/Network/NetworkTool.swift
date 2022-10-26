@@ -25,6 +25,11 @@ let GG_LOGIN_BASE_URL = "https://chatoc.onecloud.cn"
 //发送验证码
 let GG_LOGIN_SEND_CODE = "/business/sms/send?"
 
+///用户协议
+let GG_UserProtcolUrl = "https://hc.pispower.com/h5/agreement/userAgreement.html?disable_more=true"
+///隐私政策声明
+let GG_PrivacyPolicyUrl = "https://hc.pispower.com/h5/agreement/privacyPolicy.html?disable_more=true"
+
 
 
 class NetworkTool {

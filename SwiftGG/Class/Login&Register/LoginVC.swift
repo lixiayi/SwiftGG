@@ -69,14 +69,18 @@ class LoginVC: BaseVC {
             
             let subStr = str.attributedSubstring(from: range)
             //点击进入用户协议
-            HUD.flash(.label(subStr.string))
-
+            let webVC = GGWebViewController()
+            webVC.doRequest(myUrl: GG_UserProtcolUrl)
+            self.navigationController?.pushViewController(webVC, animated: true)
         }
 
         attrStr.setTextHighlight(NSRange(location: 14,length: 6), color: UIColor.blue, backgroundColor: UIColor.clear) { (view : UIView, str : NSAttributedString, range : NSRange , rect : CGRect) in
             let subStr = str.attributedSubstring(from: range)
             //点击进入隐私声明
             HUD.flash(.label(subStr.string))
+            let webVC = GGWebViewController()
+            webVC.doRequest(myUrl: GG_PrivacyPolicyUrl)
+            self.navigationController?.pushViewController(webVC, animated: true)
         }
 
 
