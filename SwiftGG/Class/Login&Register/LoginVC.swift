@@ -7,7 +7,7 @@
 
 import UIKit
 import PKHUD
-import YYKit
+//import YYKit  --- 第三方库头文件定义 或 在Header.h统一定义
 
 class LoginVC: BaseVC {
     
@@ -73,7 +73,7 @@ class LoginVC: BaseVC {
 
         }
 
-        attrStr.setTextHighlight(NSRange(location: 14,length: 6), color: UIColor.red, backgroundColor: UIColor.clear) { (view : UIView, str : NSAttributedString, range : NSRange , rect : CGRect) in
+        attrStr.setTextHighlight(NSRange(location: 14,length: 6), color: UIColor.blue, backgroundColor: UIColor.clear) { (view : UIView, str : NSAttributedString, range : NSRange , rect : CGRect) in
             let subStr = str.attributedSubstring(from: range)
             //点击进入隐私声明
             HUD.flash(.label(subStr.string))

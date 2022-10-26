@@ -8,6 +8,8 @@
 #ifndef Header_h
 #define Header_h
 
+/** 第三方OC类库的头文件定义 */
 #import "MJRefresh.h"
+#import "YYKit.h"
 
 #endif /* Header_h */
