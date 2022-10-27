@@ -8,10 +8,14 @@
 import UIKit
 import WebKit
 
-class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate {
-    
+//js执行OC的接口
+let JSToOC  = "jsToOc"
+
+class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate, WKScriptMessageHandler {
     
     var urlString:String
+    
+    // MARK: - Init
     //关于初始化介绍： https://www.jianshu.com/p/fb1a91600468
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.urlString = ""
@@ -22,10 +26,36 @@ class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lazy
     lazy var webView : WKWebView =
     {
-        let tempWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight - kNavgationBarHeight))
+        //configuration
+        let configuration = WKWebViewConfiguration()
+        let wkUserController = WKUserContentController()
         
+        //注入js调用OC的方法
+        //弱引用
+        let weakObj = GGWeakHandler(hander: self)
+        
+        wkUserController.add(weakObj, name: JSToOC)
+        
+        configuration.userContentController = wkUserController
+        
+        // preferences
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        preferences.javaScriptCanOpenWindowsAutomatically = true
+        configuration.preferences = preferences
+        
+        let tempWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight - kNavgationBarHeight),configuration: configuration)
+        
+        //回弹
+        tempWebView.scrollView.bounces = true
+        
+        //只能上下移动
+        tempWebView.scrollView.alwaysBounceVertical = true
+        
+        //设置代理
         tempWebView.uiDelegate = self;
         tempWebView.navigationDelegate = self;
         
@@ -33,13 +63,19 @@ class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate {
     }()
     
     
-
+    // MARK: - Life
+    deinit
+    {
+        self.webView.configuration.userContentController.removeScriptMessageHandler(forName: JSToOC)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavBar(hidden: false)
         self.setupUI()
     }
     
+    // MARK: - UI
     func setNavBar(hidden:Bool)
     {
         
@@ -66,6 +102,7 @@ class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate {
         }
     }
     
+    // MARK: - Action
     public func doRequest(myUrl:String)
     {
         let url = URL(string: myUrl)
@@ -82,6 +119,7 @@ class GGWebViewController: BaseVC,WKNavigationDelegate,WKUIDelegate {
 
 extension GGWebViewController
 {
+    // MARK: - navigationDelegate
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
         return WKNavigationActionPolicy.allow
     }
@@ -90,6 +128,11 @@ extension GGWebViewController
         
         print("didFinish navigation")
         self.getTitle()
+        
+        //OC执行JS
+        webView.evaluateJavaScript("sayHello('webView>>>hello')") { result, error in
+            print(result)
+        }
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -104,12 +147,23 @@ extension GGWebViewController
         print("didStartProvisionalNavigation")
     }
 
+    
+    // MARK: - UIDelegate
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         return completionHandler()
     }
     
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         return completionHandler(true)
+    }
+    
+    // MARK: - JS->OC
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.body)
+        if (message.name == JSToOC)
+        {
+            print("jsToOc do")
+        }
     }
 }
 

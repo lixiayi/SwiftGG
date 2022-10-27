@@ -9,6 +9,10 @@ import UIKit
 
 class BaseVC: UIViewController {
 
+    deinit {
+        print("deinit: \(self)")
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
