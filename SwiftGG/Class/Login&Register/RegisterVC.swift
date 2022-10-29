@@ -10,7 +10,7 @@ import PKHUD
 
 let kTfHeight : CGFloat = 44
 
-class RegisterVC: BaseVC {
+class RegisterVC: BaseVC,GGTextFieldDelegate {
 
     // MARK: - Life
     override func viewDidLoad() {
@@ -57,6 +57,14 @@ class RegisterVC: BaseVC {
     fileprivate lazy var domainTextField:GGTextFiledView = {
         let domainTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100, kScreenWidth - 32, kTfHeight))
         domainTf.setPlaceHolder(placeHolder: "请输入小慧域名")
+        domainTf.rightBtnBackgroudImageName = "reg_help"
+        domainTf.rightBtnBackgroudSelectImageName = ""
+        domainTf.btnTag = 1000;
+        
+        domainTf.showRightBtn = true
+        domainTf.delegate = self
+       
+        
         return domainTf
     }()
     
@@ -81,6 +89,12 @@ class RegisterVC: BaseVC {
     fileprivate lazy var pwdTextField:GGTextFiledView = {
         let pwdTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100 + 50 * 4, kScreenWidth - 32, kTfHeight))
         pwdTf.setPlaceHolder(placeHolder: "请输入密码")
+        pwdTf.rightBtnBackgroudImageName = "icon_login_pwd_close"
+        pwdTf.rightBtnBackgroudSelectImageName = "icon_login_pwd_open"
+        pwdTf.btnTag = 1001
+        pwdTf.showRightBtn = true
+        pwdTf.delegate = self
+        
         self.view.addSubview(pwdTf)
         return pwdTf
     }()
@@ -178,4 +192,16 @@ class RegisterVC: BaseVC {
     {
         self.backAction()
     }
+    
+    // MARK: - GGTextFieldViewDelegate
+    func doRightBtnAction(sender:UIButton) {
+        if (sender.tag == 1000)
+        {
+            let alertView = UIAlertController(title: "提示", message: "\"小慧\"域名即公司简称，请联系所在公司负责人获取", preferredStyle: .alert)
+            let action = UIAlertAction(title: "我知道了", style: .default)
+            alertView.addAction(action)
+            self.present(alertView, animated: true)
+        }
+    }
+    
 }
