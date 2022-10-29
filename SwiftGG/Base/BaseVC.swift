@@ -10,7 +10,7 @@ import UIKit
 class BaseVC: UIViewController {
 
     deinit {
-        print("deinit: \(self)")
+        print("[GGDebug]deinit: \(self)")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

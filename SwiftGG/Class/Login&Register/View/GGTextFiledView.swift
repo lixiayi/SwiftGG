@@ -39,7 +39,10 @@ class GGTextFiledView : UIView {
         self.addSubview(lineView)
     }
     
-    
+    public func setPlaceHolder(placeHolder:String)
+    {
+        self.textField.placeholder = placeHolder
+    }
 }
 
 
