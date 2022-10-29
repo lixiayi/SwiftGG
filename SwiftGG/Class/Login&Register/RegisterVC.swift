@@ -56,7 +56,7 @@ class RegisterVC: BaseVC,GGTextFieldDelegate {
     
     fileprivate lazy var domainTextField:GGTextFiledView = {
         let domainTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100, kScreenWidth - 32, kTfHeight))
-        domainTf.setPlaceHolder(placeHolder: "请输入小慧域名")
+        domainTf.setPlaceHolder(placeHolder: "请输入GG域名")
         domainTf.rightBtnBackgroudImageName = "reg_help"
         domainTf.rightBtnBackgroudSelectImageName = ""
         domainTf.btnTag = 1000;

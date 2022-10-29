@@ -22,14 +22,22 @@ let kWisdom_GetRecommend = "/wisdom/api/chameleonChatserver/queryForRecommend"
 //登录相关的BaseUrl
 let GG_LOGIN_BASE_URL = "https://chatoc.onecloud.cn"
 
+let GG_HotTub_Code_Base = "https://appcc.onecloud.cn"
+
 //发送验证码
 let GG_LOGIN_SEND_CODE = "/business/sms/send?"
 
 ///用户协议
 let GG_UserProtcolUrl = "https://hc.pispower.com/h5/agreement/userAgreement.html?disable_more=true"
+
 ///隐私政策声明
 let GG_PrivacyPolicyUrl = "https://hc.pispower.com/h5/agreement/privacyPolicy.html?disable_more=true"
 
+/// 获取加密公钥
+let GG_HotTub_Code_GetPubkey = "/hottub/chatserver/user/uso/getpubkey?"
+
+/// 账号密码登录
+let GG_HotTub_Code_PwdLogin  = "/hottub/chatserver/user/uso/login1?"
 
 
 class NetworkTool {
@@ -85,6 +93,48 @@ class NetworkTool {
                 if 0 == status
                 {
                     succCallBack?(value as? NSDictionary as Any)
+                    
+                }
+                else
+                {
+                    failCallBack!(value as! NSDictionary)
+                }
+            }
+        }
+    }
+    
+    static func getLoginPublicKey(url:String, parameter:Dictionary<String, String>?,
+        succCallBack:successCallBack,failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, parameters:parameter).responseJSON { data in
+            guard data.result.isSuccess else { return }
+            if let value = data.result.value {
+                let json = JSON(value);
+                let status = json["code"]
+                if 0 == status
+                {
+                    succCallBack?(value as? NSDictionary as Any)
+                    
+                }
+                else
+                {
+                    failCallBack!(value as! NSDictionary)
+                }
+            }
+        }
+    }
+    
+    static func requestPasswordLogin(url:String, parameter:Dictionary<String, String>?,
+        succCallBack:successCallBack,failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, parameters:parameter).responseJSON { data in
+            guard data.result.isSuccess else { return }
+            if let value = data.result.value {
+                let json = JSON(value);
+                let status = json["code"]
+                if 0 == status
+                {
+                    succCallBack?(value as! NSDictionary)
                     
                 }
                 else

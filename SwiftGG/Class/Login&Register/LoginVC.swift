@@ -11,6 +11,9 @@ import PKHUD
 
 class LoginVC: BaseVC {
     
+    //是否验证码登录，默认是
+    var isCodeLogin : Bool = true
+    
     //logo
     fileprivate lazy var logoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRectMake(16, 100, 44, 44))
@@ -36,9 +39,20 @@ class LoginVC: BaseVC {
         let phone = GGTextFiledView(frame: CGRect(x: 16, y: 200, width: kScreenWidth - 32, height: 44))
         phone.textField.placeholder = "请输入手机账号"
         phone.limitNumber = 11;
+        phone.textField.isSecureTextEntry = false
         return phone
     }()
     
+    //密码登录时密码输入框
+    fileprivate lazy var pwdTextField: GGTextFiledView = {
+        let pwdTf = GGTextFiledView(frame: CGRect(x: 16, y: 250, width: kScreenWidth - 32, height: 44))
+        pwdTf.textField.placeholder = "请输入密码"
+        pwdTf.rightBtnBackgroudImageName = "icon_login_pwd_close"
+        pwdTf.rightBtnBackgroudSelectImageName = "icon_login_pwd_open"
+        pwdTf.showRightBtn = true
+        return pwdTf
+    }()
+
     
     //我已阅读并同意选择圆框
     fileprivate lazy var agreeBtn:UIButton = {
@@ -104,7 +118,7 @@ class LoginVC: BaseVC {
     
     fileprivate lazy var pwdLoginBtn:UIButton = {
         let btn:UIButton = UIButton(type:.custom)
-        btn.frame = CGRectMake(16, 420, 80, 22)
+        btn.frame = CGRectMake(16, 420, 120, 22)
         btn.setTitle("密码登录", for: .normal)
         btn.setTitleColor(.gray, for: .normal)
         btn.contentHorizontalAlignment = .left
@@ -145,6 +159,9 @@ class LoginVC: BaseVC {
         self.view.addSubview(logoImageView)
         self.view.addSubview(helloLabel)
         self.view.addSubview(phoneTextField)
+        self.view.addSubview(pwdTextField)
+        //默认是验证码登录，密码输入框隐藏
+        pwdTextField.isHidden = true
         self.view.addSubview(agreeBtn)
         self.view.addSubview(agreeLabel)
         self.view.addSubview(codeBtn)
@@ -162,7 +179,12 @@ class LoginVC: BaseVC {
     @objc func sendCodeAction() {
         
         let phoneNum:String = self.phoneTextField.textField.text!;
-    
+        if (phoneNum.count == 0)
+        {
+            HUD.flash(.label("请输入手机账号"))
+            return
+        }
+            
         let isValidPhone:Bool = GGRegular.isPhoneNumber(phoneNumber: phoneNum)
         if (!isValidPhone)
         {
@@ -176,27 +198,130 @@ class LoginVC: BaseVC {
             return
         }
         
-        //发送验证码
-        let paramDict:[String:String] = ["mobile":phoneNum]
-        NetworkTool.sendSmsCode(url: GG_LOGIN_BASE_URL + GG_LOGIN_SEND_CODE, parameters: paramDict) { data in
+        if (self.isCodeLogin)
+        {
+            //发送验证码
+            let paramDict:[String:String] = ["mobile":phoneNum]
+            NetworkTool.sendSmsCode(url: GG_LOGIN_BASE_URL + GG_LOGIN_SEND_CODE, parameters: paramDict) { data in
+                
+                HUD.flash(.labeledSuccess(title: "验证码发送成功", subtitle: ""), delay: 1)
+                
+                //TODO::进入输入验证码页面
+                
+            } failCallBack: { error in
+                
+                HUD.flash(.label(error["message"] as? String), delay: 1)
+            };
+        }
+        else
+        {
+            //密码登录
+            if (self.pwdTextField.textField.text?.count == 0)
+            {
+                HUD.flash(.label("请输入密码"))
+                return
+            }
             
-            HUD.flash(.labeledSuccess(title: "验证码发送成功", subtitle: ""), delay: 1)
-            
-        } failCallBack: { error in
-            
-            HUD.flash(.label(error["message"] as? String), delay: 1)
-        };
+            self.requestPwdLogin()
+        }
 
     }
     
     @objc func pwdLoginAction()
     {
-        print("密码登录")
+        isCodeLogin = !isCodeLogin
+        if (isCodeLogin)
+        {
+            pwdLoginBtn.setTitle("密码登录", for: .normal)
+            pwdTextField.isHidden = true
+            codeBtn.setTitle("获取验证码", for: .normal)
+            
+            //下面的控件都上移50
+            UIView.animate(withDuration: 0.25) {
+                self.agreeBtn.mj_y -= 50
+                self.agreeLabel.mj_y -= 50
+                self.codeBtn.mj_y -= 50
+                self.pwdLoginBtn.mj_y -= 50
+                self.regBtn.mj_y -= 50;
+            }
+        }
+        else
+        {
+            pwdLoginBtn.setTitle("手机验证码登录", for: .normal)
+            pwdTextField.isHidden = false
+            codeBtn.setTitle("登录", for: .normal)
+            
+            UIView.animate(withDuration: 0.25) {
+                
+                //显示密码输入框
+                self.pwdTextField.isHidden = false
+                
+                //下面的控件都下移50
+                self.agreeBtn.mj_y += 50
+                self.agreeLabel.mj_y += 50
+                self.codeBtn.mj_y += 50
+                self.pwdLoginBtn.mj_y += 50
+                self.regBtn.mj_y += 50;
+            }
+        }
     }
     
     @objc func regAction()
     {
         let regVC: RegisterVC = RegisterVC()
         self.navigationController?.pushViewController(regVC, animated: true)
+    }
+    
+    func requestPwdLogin() {
+        
+        //1.获取公钥接口
+        let ud = UserDefaults.standard
+        let publicKey:String? = ud.string(forKey: kLoginPublicKey)
+        if (publicKey == nil || publicKey?.count == 0)
+        {
+            let url = GG_HotTub_Code_Base + GG_HotTub_Code_GetPubkey
+            NetworkTool.getLoginPublicKey(url: url, parameter: nil) { data in
+                
+                //获取data
+                let dic: NSDictionary = ((data as? NSDictionary)!)
+                guard let pubKey = dic["key"] else { return  }
+                
+                //保存公钥
+                ud.setValue(pubKey, forKey: kLoginPublicKey)
+                
+                //开始请求
+                self.requestPwdLoginWithPublicKey(key: pubKey as! String)
+                
+                
+            } failCallBack: { messageInfo in
+
+            }
+        }
+        else
+        {
+            //2.请求密码登录接口
+            self.requestPwdLoginWithPublicKey(key: publicKey!)
+        }
+    }
+    
+    func requestPwdLoginWithPublicKey(key:String)  {
+        
+        //1.RAS加密密码
+        let passwordEncrypt:String? = RSA.encryptString(pwdTextField.textField.text, publicKey: key)
+        
+        let paras: Dictionary<String ,String> = ["account" : phoneTextField.textField.text!, "password" : passwordEncrypt!]
+        
+        let url = GG_HotTub_Code_Base + GG_HotTub_Code_PwdLogin
+        NetworkTool.requestPasswordLogin(url:url , parameter: paras) { data in
+            //一步步拆解，否则报类型推断错误
+            let dic : NSDictionary = data as! NSDictionary
+            let arr:Array<NSDictionary> = dic.object(forKey: "data") as! Array<NSDictionary>
+            print("[GGDeub]--->登录域名信息：")
+            print(arr)
+            
+            
+        } failCallBack: { messageInfo in
+
+        }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20132B90290D7BCF00F68697 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 20132B8E290D7BCE00F68697 /* RSA.m */; };
 		201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201846262903DD1D007B7C22 /* UIColor+Extension.swift */; };
 		201C7CB3258DD0A80081BF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB2258DD0A80081BF3E /* AppDelegate.swift */; };
 		201C7CB5258DD0A80081BF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB4258DD0A80081BF3E /* SceneDelegate.swift */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20132B8E290D7BCE00F68697 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		20132B8F290D7BCE00F68697 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		201846262903DD1D007B7C22 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		201C7CAF258DD0A80081BF3E /* SwiftGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		201C7CB2258DD0A80081BF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20132B8D290D7BCE00F68697 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				20132B8F290D7BCE00F68697 /* RSA.h */,
+				20132B8E290D7BCE00F68697 /* RSA.m */,
+			);
+			path = RSA;
+			sourceTree = "<group>";
+		};
 		201C7CA6258DD0A80081BF3E = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +360,7 @@
 		20F2650A290395E900DFCB43 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				20132B8D290D7BCE00F68697 /* RSA */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -581,6 +594,7 @@
 				20BF400725AA02AE004DEF31 /* LoginViewController.swift in Sources */,
 				201C7CB5258DD0A80081BF3E /* SceneDelegate.swift in Sources */,
 				20B5AA6029002C5100208992 /* BaseNavigationController.swift in Sources */,
+				20132B90290D7BCF00F68697 /* RSA.m in Sources */,
 				2025548A25A4A5E100776700 /* MJRefreshVC.swift in Sources */,
 				20DDD5C725AB38AE002E5E00 /* LoginRecomModel.swift in Sources */,
 			);
