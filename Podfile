@@ -8,6 +8,7 @@ target 'SwiftGG' do
  pod 'Kingfisher'
  pod 'PKHUD', '~> 5.0'
  pod 'YYKit'
+ pod 'SnapKit'
  
  use_frameworks!
  

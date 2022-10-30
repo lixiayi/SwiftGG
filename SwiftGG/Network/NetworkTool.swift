@@ -40,6 +40,16 @@ let GG_HotTub_Code_GetPubkey = "/hottub/chatserver/user/uso/getpubkey?"
 let GG_HotTub_Code_PwdLogin  = "/hottub/chatserver/user/uso/login1?"
 
 
+///智慧云boss
+let GG_WisdomBossUrl  =  "https://wisdomboss.onecloud.cn"
+
+/// 大路由设计-获取企业域名域名配置信息
+let GG_HotTub_Code_CompanyInfoByRouter = "/chatserver/component?"
+
+//login2
+let GG_Code_LinkLogin  = "/business/user/login2?"
+
+
 class NetworkTool {
     
     /** 成功回调 */
@@ -145,4 +155,45 @@ class NetworkTool {
         }
     }
     
+    static func requestGruopInfo(url:String, parameter:Dictionary<String, String>?,
+        succCallBack:successCallBack,failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, parameters:parameter).responseJSON { data in
+            guard data.result.isSuccess else { return }
+            if let value = data.result.value {
+                let json = JSON(value);
+                let status = json["code"]
+                if 200 == status
+                {
+                    succCallBack?(value as! Dictionary<String, AnyObject>)
+                    
+                }
+                else
+                {
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
+                }
+            }
+        }
+    }
+    
+    static func requestLastLogin(url:String, parameter:Dictionary<String, String>?,
+        succCallBack:successCallBack,failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, parameters:parameter).responseJSON { data in
+            guard data.result.isSuccess else { return }
+            if let value = data.result.value {
+                let json = JSON(value);
+                let status = json["code"]
+                if 200 == status
+                {
+                    succCallBack?(value as! Dictionary<String, AnyObject>)
+                    
+                }
+                else
+                {
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
+                }
+            }
+        }
+    }
 }

@@ -327,6 +327,10 @@ class LoginVC: BaseVC {
                 modelArr.append(model)
             }
             
+            let listVC =  LoginDomainListVC()
+            listVC.dataArr = modelArr
+            self.navigationController?.pushViewController(listVC, animated: true)
+            
             //获取下面这么写都可
 //            guard let dic : Dictionary = data as? Dictionary<String, NSObject> else { return }
 //            guard let arr : Array<Dictionary> = dic["data"] as? Array<Dictionary<String, NSObject>> else { return }
