@@ -314,10 +314,29 @@ class LoginVC: BaseVC {
         let url = GG_HotTub_Code_Base + GG_HotTub_Code_PwdLogin
         NetworkTool.requestPasswordLogin(url:url , parameter: paras) { data in
             //一步步拆解，否则报类型推断错误
-            let dic : NSDictionary = data as! NSDictionary
-            let arr:Array<NSDictionary> = dic.object(forKey: "data") as! Array<NSDictionary>
-            print("[GGDeub]--->登录域名信息：")
-            print(arr)
+            //1.将data转成字典
+            guard let resultDict = data as? [String : AnyObject] else { return }
+            
+            //2.根据data的key获取数组
+            guard let resultArr = resultDict["data"] as? [[String : AnyObject]] else { return }
+           
+            var modelArr: [LoginModel] = []
+            for dic:Dictionary in resultArr
+            {
+                let model = LoginModel(dict: dic)
+                modelArr.append(model)
+            }
+            
+            //获取下面这么写都可
+//            guard let dic : Dictionary = data as? Dictionary<String, NSObject> else { return }
+//            guard let arr : Array<Dictionary> = dic["data"] as? Array<Dictionary<String, NSObject>> else { return }
+//
+//            var modelArr: [LoginModel] = []
+//            for dic:Dictionary in arr
+//            {
+//                let model = LoginModel(dict: dic)
+//                modelArr.append(model)
+//            }
             
             
         } failCallBack: { messageInfo in

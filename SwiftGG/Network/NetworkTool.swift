@@ -46,7 +46,7 @@ class NetworkTool {
     typealias successCallBack = ((_ data:Any)->())?
 
     /** 失败回调 */
-    typealias failureCallBack = ((_ messageInfo:NSDictionary)->())?
+    typealias failureCallBack = ((_ messageInfo:Dictionary<String,AnyObject>)->())?
     
     static func requestRecommendDomain(url:String, param:Dictionary<String, String>?, succCallBack:successCallBack, failCallBack: failureCallBack)
     {
@@ -76,7 +76,7 @@ class NetworkTool {
                 }
                 else
                 {
-                    failCallBack!(value as! NSDictionary)
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
                 }
             }
         }
@@ -97,7 +97,7 @@ class NetworkTool {
                 }
                 else
                 {
-                    failCallBack!(value as! NSDictionary)
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
                 }
             }
         }
@@ -118,7 +118,7 @@ class NetworkTool {
                 }
                 else
                 {
-                    failCallBack!(value as! NSDictionary)
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
                 }
             }
         }
@@ -134,12 +134,12 @@ class NetworkTool {
                 let status = json["code"]
                 if 0 == status
                 {
-                    succCallBack?(value as! NSDictionary)
+                    succCallBack?(value as! Dictionary<String, AnyObject>)
                     
                 }
                 else
                 {
-                    failCallBack!(value as! NSDictionary)
+                    failCallBack!(value as! Dictionary<String, AnyObject>)
                 }
             }
         }

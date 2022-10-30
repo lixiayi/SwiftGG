@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20132B90290D7BCF00F68697 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 20132B8E290D7BCE00F68697 /* RSA.m */; };
+		20132B93290E1A5E00F68697 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20132B92290E1A5E00F68697 /* LoginModel.swift */; };
 		201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201846262903DD1D007B7C22 /* UIColor+Extension.swift */; };
 		201C7CB3258DD0A80081BF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB2258DD0A80081BF3E /* AppDelegate.swift */; };
 		201C7CB5258DD0A80081BF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB4258DD0A80081BF3E /* SceneDelegate.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		20132B8E290D7BCE00F68697 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		20132B8F290D7BCE00F68697 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		20132B92290E1A5E00F68697 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		201846262903DD1D007B7C22 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		201C7CAF258DD0A80081BF3E /* SwiftGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		201C7CB2258DD0A80081BF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 				20132B8E290D7BCE00F68697 /* RSA.m */,
 			);
 			path = RSA;
+			sourceTree = "<group>";
+		};
+		20132B91290E1A2C00F68697 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20132B92290E1A5E00F68697 /* LoginModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		201C7CA6258DD0A80081BF3E = {
@@ -317,6 +327,7 @@
 		20F26504290394F300DFCB43 /* Login&Register */ = {
 			isa = PBXGroup;
 			children = (
+				20132B91290E1A2C00F68697 /* Model */,
 				20F2650B2903981B00DFCB43 /* LoginVC.swift */,
 				20F2650D2903986700DFCB43 /* RegisterVC.swift */,
 				20B83BC92904DD0B0007A64B /* View */,
@@ -571,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				202C2AD1290ADA2500388081 /* GGWeakHandler.swift in Sources */,
+				20132B93290E1A5E00F68697 /* LoginModel.swift in Sources */,
 				2025547E25A4A4D700776700 /* RefreshView.swift in Sources */,
 				20B5AA6229002DC900208992 /* BaseTabBarController.swift in Sources */,
 				20B83BCC290549200007A64B /* GGRegular.swift in Sources */,
