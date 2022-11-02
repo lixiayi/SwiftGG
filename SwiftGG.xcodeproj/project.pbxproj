@@ -10,6 +10,7 @@
 		20132B90290D7BCF00F68697 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 20132B8E290D7BCE00F68697 /* RSA.m */; };
 		20132B93290E1A5E00F68697 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20132B92290E1A5E00F68697 /* LoginModel.swift */; };
 		201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201846262903DD1D007B7C22 /* UIColor+Extension.swift */; };
+		201A5B512911F4B20035DA76 /* GGDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A5B502911F4B20035DA76 /* GGDataManager.swift */; };
 		201C7CB3258DD0A80081BF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB2258DD0A80081BF3E /* AppDelegate.swift */; };
 		201C7CB5258DD0A80081BF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB4258DD0A80081BF3E /* SceneDelegate.swift */; };
 		201C7CB7258DD0A80081BF3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C7CB6258DD0A80081BF3E /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 		20132B8F290D7BCE00F68697 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		20132B92290E1A5E00F68697 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		201846262903DD1D007B7C22 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		201A5B502911F4B20035DA76 /* GGDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGDataManager.swift; sourceTree = "<group>"; };
 		201C7CAF258DD0A80081BF3E /* SwiftGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		201C7CB2258DD0A80081BF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		201C7CB4258DD0A80081BF3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		201A5B4F2911F48C0035DA76 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				201A5B502911F4B20035DA76 /* GGDataManager.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		201C7CA6258DD0A80081BF3E = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,7 @@
 				20B5AA752900482000208992 /* Constant */,
 				20B5AA63290032CB00208992 /* Class */,
 				20DDD5CB25AB4194002E5E00 /* Network */,
+				201A5B4F2911F48C0035DA76 /* DB */,
 				2042E7AF25A9F2A200F8BDC4 /* Header */,
 				2042E7AB25A9F28D00F8BDC4 /* Extension */,
 				20B83BCA2904EA310007A64B /* Tool */,
@@ -617,6 +628,7 @@
 				20132B90290D7BCF00F68697 /* RSA.m in Sources */,
 				2025548A25A4A5E100776700 /* MJRefreshVC.swift in Sources */,
 				20DDD5C725AB38AE002E5E00 /* LoginRecomModel.swift in Sources */,
+				201A5B512911F4B20035DA76 /* GGDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

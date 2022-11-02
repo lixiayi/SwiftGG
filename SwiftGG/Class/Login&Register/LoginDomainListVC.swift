@@ -159,34 +159,29 @@ extension LoginDomainListVC {
         let tempDic = NSKeyedUnarchiver.unarchiveObject(with: tempData as! Data, exception: nil) as! [String: NSObject]
         
         let chatserverApi = tempDic["chatserver_api"] as! String?
+        let chatserverId = tempDic["chatserver_id"]
         let url = chatserverApi! +  GG_Code_LinkLogin
         
         
         let bundleVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         
         
-        let params = ["platform_type" : "2",
+        let params = ["platform_type" : 2,
                       "im_user_name" : model.im_user_name ?? "",
                       "im_user_pwd" : model.im_user_pwd ?? "" ,
-                      "chatserver_id_from" : chatserverApi ?? "",
+                      "chatserver_id_from" : chatserverId as Any,
                       "im_user_name_from" : model.im_user_name ?? "",
                       "platform_token" : "123",
                       "platform_sys_version" : UIDevice.current.systemVersion,
-                      "platform_app_version" : bundleVersion] as? [String : String]
-        
+                      "platform_app_version" : bundleVersion as Any] as? [String : Any]
 
-
-        NetworkTool.requestLastLogin(url: url, parameter: params) { data in
-            
+        NetworkTool.requestLastLoginWithHeader(url: url, parameter: params, header: GG_NetWorkTool_Headers) { data in
+            //缓存数据
+            GGDataManager.saveUserInfo(dic: data as! [String : AnyObject])
             
             
         } failCallBack: { messageInfo in
-        
-            
+            print("请求失败:\(messageInfo)")
         }
-
     }
-    
-    
-    
 }

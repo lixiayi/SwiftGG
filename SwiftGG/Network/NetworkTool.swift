@@ -50,6 +50,15 @@ let GG_HotTub_Code_CompanyInfoByRouter = "/chatserver/component?"
 let GG_Code_LinkLogin  = "/business/user/login2?"
 
 
+//headers
+let GG_NetWorkTool_Headers = ["Oc_Platform_Type" : "2",
+                              "Oc_Platform_SysVersion": String(UIDevice.systemVersion()),
+                              "Oc_Platform_AppVersion" : Bundle.main.infoDictionary?["CFBundleShortVersionString"],
+                              "Oc_Platform_Token" : "",
+                              "Oc_Chatserver_MinVersion" : "3.0",
+                              "Oc_Chatserver_Id" : "2"] as! [String : String]
+
+
 class NetworkTool {
     
     /** 成功回调 */
@@ -176,15 +185,15 @@ class NetworkTool {
         }
     }
     
-    static func requestLastLogin(url:String, parameter:Dictionary<String, String>?,
-        succCallBack:successCallBack,failCallBack:failureCallBack)
+    static func requestLastLoginWithHeader(url:String ,parameter:Dictionary<String, Any>?,
+        header:[String : String],succCallBack:successCallBack,failCallBack:failureCallBack)
     {
-        Alamofire.request(url, parameters:parameter).responseJSON { data in
-            guard data.result.isSuccess else { return }
+        Alamofire.request(url,parameters: parameter,headers: header).responseJSON { data in
+            guard data.result.isSuccess else {return}
             if let value = data.result.value {
                 let json = JSON(value);
                 let status = json["code"]
-                if 200 == status
+                if 0 == status
                 {
                     succCallBack?(value as! Dictionary<String, AnyObject>)
                     
@@ -196,4 +205,8 @@ class NetworkTool {
             }
         }
     }
+    
+    
+
+    
 }
