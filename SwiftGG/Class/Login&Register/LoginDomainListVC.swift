@@ -179,6 +179,11 @@ extension LoginDomainListVC {
             //缓存数据
             GGDataManager.saveUserInfo(dic: data as! [String : AnyObject])
             
+            //进入rootVC
+            let mainTabbarController = RootViewController()
+            let window = GGTools.getCurrentWindow()
+            window?.rootViewController = mainTabbarController;
+            
             
         } failCallBack: { messageInfo in
             print("请求失败:\(messageInfo)")

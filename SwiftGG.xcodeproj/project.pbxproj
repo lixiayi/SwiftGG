@@ -38,6 +38,7 @@
 		20B83BC82904DD020007A64B /* GGTextFiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B83BC72904DD020007A64B /* GGTextFiledView.swift */; };
 		20B83BCC290549200007A64B /* GGRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B83BCB290549200007A64B /* GGRegular.swift */; };
 		20BF400725AA02AE004DEF31 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF400525AA02AE004DEF31 /* LoginViewController.swift */; };
+		20CE172329149AF1001F946A /* GGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CE172229149AF1001F946A /* GGTools.swift */; };
 		20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5BF25AB37F1002E5E00 /* LoginRecommCollCell.swift */; };
 		20DDD5C225AB37F1002E5E00 /* LoginRecommCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */; };
 		20DDD5C725AB38AE002E5E00 /* LoginRecomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */; };
@@ -105,6 +106,7 @@
 		20B83BC72904DD020007A64B /* GGTextFiledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGTextFiledView.swift; sourceTree = "<group>"; };
 		20B83BCB290549200007A64B /* GGRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGRegular.swift; sourceTree = "<group>"; };
 		20BF400525AA02AE004DEF31 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		20CE172229149AF1001F946A /* GGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGTools.swift; sourceTree = "<group>"; };
 		20DDD5BF25AB37F1002E5E00 /* LoginRecommCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecommCollCell.swift; sourceTree = "<group>"; };
 		20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginRecommCollCell.xib; sourceTree = "<group>"; };
 		20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecomModel.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		20B83BCA2904EA310007A64B /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				20CE172229149AF1001F946A /* GGTools.swift */,
 				20B83BCB290549200007A64B /* GGRegular.swift */,
 			);
 			path = Tool;
@@ -605,6 +608,7 @@
 				20B83BCC290549200007A64B /* GGRegular.swift in Sources */,
 				20B5AA6F2900369300208992 /* BaseVC.swift in Sources */,
 				201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */,
+				20CE172329149AF1001F946A /* GGTools.swift in Sources */,
 				2084F059290E669C002F47C3 /* LoginDomainCell.swift in Sources */,
 				202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */,
 				201C7CB7258DD0A80081BF3E /* ViewController.swift in Sources */,
