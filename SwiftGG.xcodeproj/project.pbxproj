@@ -39,6 +39,8 @@
 		20B83BCC290549200007A64B /* GGRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B83BCB290549200007A64B /* GGRegular.swift */; };
 		20BF400725AA02AE004DEF31 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF400525AA02AE004DEF31 /* LoginViewController.swift */; };
 		20CE172329149AF1001F946A /* GGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CE172229149AF1001F946A /* GGTools.swift */; };
+		20D64B9C29176D3700B44F38 /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9B29176D3700B44F38 /* SMSViewController.swift */; };
+		20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9D2917711B00B44F38 /* SMSView.swift */; };
 		20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5BF25AB37F1002E5E00 /* LoginRecommCollCell.swift */; };
 		20DDD5C225AB37F1002E5E00 /* LoginRecommCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */; };
 		20DDD5C725AB38AE002E5E00 /* LoginRecomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */; };
@@ -107,6 +109,8 @@
 		20B83BCB290549200007A64B /* GGRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGRegular.swift; sourceTree = "<group>"; };
 		20BF400525AA02AE004DEF31 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20CE172229149AF1001F946A /* GGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGTools.swift; sourceTree = "<group>"; };
+		20D64B9B29176D3700B44F38 /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
+		20D64B9D2917711B00B44F38 /* SMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSView.swift; sourceTree = "<group>"; };
 		20DDD5BF25AB37F1002E5E00 /* LoginRecommCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecommCollCell.swift; sourceTree = "<group>"; };
 		20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginRecommCollCell.xib; sourceTree = "<group>"; };
 		20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecomModel.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 			children = (
 				20B83BC72904DD020007A64B /* GGTextFiledView.swift */,
 				2084F058290E669C002F47C3 /* LoginDomainCell.swift */,
+				20D64B9D2917711B00B44F38 /* SMSView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				20F2650B2903981B00DFCB43 /* LoginVC.swift */,
 				20F2650D2903986700DFCB43 /* RegisterVC.swift */,
 				2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */,
+				20D64B9B29176D3700B44F38 /* SMSViewController.swift */,
 				20B83BC92904DD0B0007A64B /* View */,
 			);
 			path = "Login&Register";
@@ -603,6 +609,7 @@
 			files = (
 				202C2AD1290ADA2500388081 /* GGWeakHandler.swift in Sources */,
 				20132B93290E1A5E00F68697 /* LoginModel.swift in Sources */,
+				20D64B9C29176D3700B44F38 /* SMSViewController.swift in Sources */,
 				2025547E25A4A4D700776700 /* RefreshView.swift in Sources */,
 				20B5AA6229002DC900208992 /* BaseTabBarController.swift in Sources */,
 				20B83BCC290549200007A64B /* GGRegular.swift in Sources */,
@@ -616,6 +623,7 @@
 				20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */,
 				20F2650E2903986700DFCB43 /* RegisterVC.swift in Sources */,
 				20B5AA772900483000208992 /* Constant.swift in Sources */,
+				20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */,
 				20B5AA692900335400208992 /* ChatViewController.swift in Sources */,
 				204BC985259782000014C96B /* UIView+Extension.swift in Sources */,
 				20B5AA6D2900337400208992 /* MeViewController.swift in Sources */,
@@ -738,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -794,7 +802,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

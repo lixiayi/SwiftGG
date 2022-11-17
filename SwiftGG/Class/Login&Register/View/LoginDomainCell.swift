@@ -17,6 +17,9 @@ class LoginDomainCell: UITableViewCell {
     
     var cellc : cellClick?
     
+    var didSelectCallBack : ((LoginModel) -> Void)?
+    
+    
     var loginM : LoginModel? {
         didSet {
             logoImageView.setImageWith(URL(string: (loginM?.recommend_image)!), placeholder: nil)
@@ -26,7 +29,8 @@ class LoginDomainCell: UITableViewCell {
     
     //整个背景view
     lazy var bgView : UIView = {
-        let view = UIView(frame: CGRectMake(16, 5, kScreenWidth, 70))
+        
+        let view = UIView(frame: CGRect(x: 16, y: 5, width: kScreenWidth, height: 70))
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
@@ -35,14 +39,14 @@ class LoginDomainCell: UITableViewCell {
     
     //透明背景条
     lazy var topView : UIView = {
-        let view = UIView(frame: CGRectMake(16, 0, kScreenWidth, 10))
+        let view = UIView(frame: CGRect(x: 16, y: 0, width: kScreenWidth, height: 10))
         view.backgroundColor = UIColor.clear
         return view
     }()
     
     //图标
     lazy var logoImageView : UIImageView = {
-        let logo = UIImageView(frame: CGRectMake(16, 5, 80, 30))
+        let logo = UIImageView(frame: CGRect(x: 16, y: 5, width: 80, height: 30))
         logo.contentMode = .scaleAspectFit
         return logo
     }()
@@ -67,7 +71,7 @@ class LoginDomainCell: UITableViewCell {
     
     lazy var righBtn : UIButton = {
         let btn = UIButton(type: .custom)
-        btn.frame = CGRectMake(kScreenWidth - 20, 5, 16, 16)
+        btn.frame = CGRect(x: kScreenWidth - 20, y: 5, width: 16, height: 16)
         btn.setImage(UIImage(named: "right"), for: .normal)
         btn.addTarget(self, action: #selector(rightBtnClick), for: .touchUpInside)
         return btn
@@ -137,7 +141,8 @@ class LoginDomainCell: UITableViewCell {
     
     @objc func rightBtnClick()
     {
-        cellc!(loginM!)
+        guard let cellBlcok = cellc else { return  }
+        guard let model = loginM else { return }
+        cellBlcok(model)
     }
-     
 }

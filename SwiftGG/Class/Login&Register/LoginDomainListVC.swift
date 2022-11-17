@@ -17,7 +17,9 @@ class LoginDomainListVC: BaseVC,UITableViewDataSource,UITableViewDelegate {
     }()
     
     lazy var titleLabel : UILabel = {
-        let lbl = UILabel(frame: CGRectMake(0, kStatusBarH, kScreenWidth, 44))
+        
+        
+        let lbl = UILabel(frame: CGRect(x: 0, y: kStatusBarH, width: kScreenWidth, height: 44))
         lbl.text = "选择企业"
         lbl.font = UIFont.systemFont(ofSize: 17)
         lbl.textColor = .white
@@ -104,7 +106,6 @@ extension LoginDomainListVC {
         cell.latestLabel.isHidden = (indexPath.row != 0)
         cell.cellc = {[weak self](model) -> Void in
             
-            guard let domainStr = model.domain else { return  }
             self?.doRequestRouter(model: cell.loginM!)
         }
         return cell
@@ -112,10 +113,18 @@ extension LoginDomainListVC {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell: LoginDomainCell = tableView.dequeueReusableCell(withIdentifier: kLoginDomainCellID) as! LoginDomainCell
-        cell.cellc = { [weak self](model) -> Void in
-            guard let domainStr = model.domain else { return }
+       
+        
+        //获取当前点击的model
+        let loginM = dataArr[indexPath.row]
+        cell.loginM = loginM
+        cell.cellc = {[weak self](model) -> Void in
             self?.doRequestRouter(model: cell.loginM!)
         }
+        
+        //调用执行右侧点击按钮的方法
+        cell.rightBtnClick()
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -173,7 +182,7 @@ extension LoginDomainListVC {
                       "im_user_name_from" : model.im_user_name ?? "",
                       "platform_token" : "123",
                       "platform_sys_version" : UIDevice.current.systemVersion,
-                      "platform_app_version" : bundleVersion as Any] as? [String : Any]
+                      "platform_app_version" : bundleVersion as Any]
 
         NetworkTool.requestLastLoginWithHeader(url: url, parameter: params, header: GG_NetWorkTool_Headers) { data in
             //缓存数据

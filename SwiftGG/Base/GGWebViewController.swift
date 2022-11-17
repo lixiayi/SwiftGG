@@ -131,7 +131,11 @@ extension GGWebViewController
         
         //OC执行JS
         webView.evaluateJavaScript("sayHello('webView>>>hello')") { result, error in
-            print(result)
+            guard let rst = result else {
+                return
+            }
+            
+            print(rst)
         }
     }
     

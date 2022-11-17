@@ -16,7 +16,8 @@ class LoginVC: BaseVC {
     
     //logo
     fileprivate lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRectMake(16, 100, 44, 44))
+        
+        let imageView = UIImageView(frame: CGRect(x: 16, y: 100, width: 44, height: 44))
         imageView.image = UIImage(named: "AppIcon")
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -118,7 +119,8 @@ class LoginVC: BaseVC {
     
     fileprivate lazy var pwdLoginBtn:UIButton = {
         let btn:UIButton = UIButton(type:.custom)
-        btn.frame = CGRectMake(16, 420, 120, 22)
+        
+        btn.frame = CGRect(x: 16, y: 420, width: 120, height: 22)
         btn.setTitle("密码登录", for: .normal)
         btn.setTitleColor(.gray, for: .normal)
         btn.contentHorizontalAlignment = .left
@@ -130,7 +132,7 @@ class LoginVC: BaseVC {
 
     fileprivate lazy var regBtn:UIButton = {
         let btn:UIButton = UIButton(type:.custom)
-        btn.frame = CGRectMake(kScreenWidth - 16 - 80, 420, 80, 22)
+        btn.frame =  CGRect(x: kScreenWidth - 16 - 80, y: 420, width: 80, height: 22)
         btn.setTitle("注册账号", for: .normal)
         btn.setTitleColor(.gray, for: .normal)
         btn.contentHorizontalAlignment = .right
@@ -202,11 +204,15 @@ class LoginVC: BaseVC {
         {
             //发送验证码
             let paramDict:[String:String] = ["mobile":phoneNum]
-            NetworkTool.sendSmsCode(url: GG_LOGIN_BASE_URL + GG_LOGIN_SEND_CODE, parameters: paramDict) { data in
+            
+            NetworkTool.sendSmsCode(url: GG_HotTub_Code_Base + GG_LOGIN_SEND_CODE, parameters: paramDict,header:GG_NetWorkTool_Headers) { data in
                 
                 HUD.flash(.labeledSuccess(title: "验证码发送成功", subtitle: ""), delay: 1)
                 
                 //TODO::进入输入验证码页面
+                let smsVC = SMSViewController()
+                smsVC.phoneStr = self.phoneTextField.textField.text
+                self.navigationController?.pushViewController(smsVC, animated: true)
                 
             } failCallBack: { error in
                 

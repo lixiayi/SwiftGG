@@ -38,7 +38,7 @@ class RegisterVC: BaseVC,GGTextFieldDelegate {
     // MARK: - Lazy
     fileprivate lazy var backBtn:UIButton = {
         let btn:UIButton = UIButton(type:.custom)
-        btn.frame = CGRectMake(16, 30, 22, 22)
+        btn.frame = CGRect(x: 16, y: 30, width: 22, height: 22)
         btn.setBackgroundImage(UIImage(named: "icon_login_back"), for: .normal)
         btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         
@@ -46,7 +46,8 @@ class RegisterVC: BaseVC,GGTextFieldDelegate {
     }()
     
     fileprivate lazy var titleLabl: UILabel = {
-        let label = UILabel(frame: CGRectMake(16, 70, 120, 30))
+        
+        let label = UILabel(frame: CGRect(x: 16, y: 70, width: 120, height: 30))
         label.text = "欢迎注册 小慧"
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
@@ -55,7 +56,8 @@ class RegisterVC: BaseVC,GGTextFieldDelegate {
     }()
     
     fileprivate lazy var domainTextField:GGTextFiledView = {
-        let domainTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100, kScreenWidth - 32, kTfHeight))
+        
+        let domainTf : GGTextFiledView = GGTextFiledView (frame: CGRect(x: 16, y: 100, width: kScreenWidth - 32, height: kTfHeight))
         domainTf.setPlaceHolder(placeHolder: "请输入GG域名")
         domainTf.rightBtnBackgroudImageName = "reg_help"
         domainTf.rightBtnBackgroudSelectImageName = ""
@@ -69,25 +71,30 @@ class RegisterVC: BaseVC,GGTextFieldDelegate {
     }()
     
     fileprivate lazy var nameTextField:GGTextFiledView = {
-        let nameTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100 + 50, kScreenWidth - 32, kTfHeight))
+        let nameTf : GGTextFiledView = GGTextFiledView (frame: CGRect(x: 16, y: 100 + 50, width: kScreenWidth - 32, height: kTfHeight))
         nameTf.setPlaceHolder(placeHolder: "请输入姓名")
         return nameTf
     }()
     
     fileprivate lazy var phoneTextField:GGTextFiledView = {
-        let phoneTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100 + 50 * 2, kScreenWidth - 32, kTfHeight))
+        
+        
+        let phoneTf : GGTextFiledView = GGTextFiledView (frame:CGRect(x: 16, y: 100 + 50 * 2, width: kScreenWidth - 32, height: kTfHeight))
         phoneTf.setPlaceHolder(placeHolder: "请输入手机号")
         return phoneTf
     }()
     
     fileprivate lazy var codeTextField:GGTextFiledView = {
-        let codeTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100 + 50 * 3, kScreenWidth - 32, kTfHeight))
+        
+        
+        let codeTf : GGTextFiledView = GGTextFiledView (frame: CGRect(x: 16, y: 100 + 50 * 3, width: kScreenWidth - 32, height: kTfHeight))
         codeTf.setPlaceHolder(placeHolder: "请输入验证码")
         return codeTf
     }()
     
     fileprivate lazy var pwdTextField:GGTextFiledView = {
-        let pwdTf : GGTextFiledView = GGTextFiledView (frame: CGRectMake(16, 100 + 50 * 4, kScreenWidth - 32, kTfHeight))
+        
+        let pwdTf : GGTextFiledView = GGTextFiledView (frame: CGRect(x: 16, y: 100 + 50 * 4, width: kScreenWidth - 32, height: kTfHeight))
         pwdTf.setPlaceHolder(placeHolder: "请输入密码")
         pwdTf.rightBtnBackgroudImageName = "icon_login_pwd_close"
         pwdTf.rightBtnBackgroudSelectImageName = "icon_login_pwd_open"
