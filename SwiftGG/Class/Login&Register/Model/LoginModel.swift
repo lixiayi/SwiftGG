@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HandyJSON
 /*
  
  "chatserver_api" = "https://chanpin-chatoc.onecloud.cn";
@@ -47,4 +48,27 @@ class LoginModel : NSObject {
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
+}
+
+
+class LoginModelNew : HandyJSON {
+    /** ⚠️ 遵守handyjson协议⚠️*/
+    
+    required init() {
+        
+    }
+    //域名api地址
+    var chatserver_api : String? = ""
+    //域名ID 赋初值
+    var chatserver_id : Int = 0
+    //域名名称
+    var domain : String? = ""
+    //GG号
+    var im_user_name: String? = ""
+    //GG密码
+    var im_user_pwd : String? = ""
+    //图片
+    var recommend_image : String? = ""
+    //是否默认 赋初值
+    var tacit:Int = 0
 }

@@ -169,6 +169,18 @@ extension SMSViewController : SmscodeDelegate
                 modelArr.append(model)
             }
             
+            //这里作为验证HandyJson ////////
+            var modelArr1: [LoginModelNew] = []
+            for dic:Dictionary in resultArr
+            {
+                if let model = LoginModelNew.deserialize(from: dic, designatedPath: nil){
+                    modelArr1.append(model)
+                }
+            }
+            print(modelArr1);
+            
+            ///////////////////////////
+            
             let listVC =  LoginDomainListVC()
             listVC.dataArr = modelArr
             self.navigationController?.pushViewController(listVC, animated: true)
