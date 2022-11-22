@@ -24,6 +24,8 @@
 		202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C2ACE2909796900388081 /* GGWebViewController.swift */; };
 		202C2AD1290ADA2500388081 /* GGWeakHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C2AD0290ADA2500388081 /* GGWeakHandler.swift */; };
 		204BC985259782000014C96B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC984259782000014C96B /* UIView+Extension.swift */; };
+		205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */; };
+		205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */; };
 		2084F057290E63EA002F47C3 /* LoginDomainListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */; };
 		2084F059290E669C002F47C3 /* LoginDomainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F058290E669C002F47C3 /* LoginDomainCell.swift */; };
 		20B5AA6029002C5100208992 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5AA5F29002C5100208992 /* BaseNavigationController.swift */; };
@@ -94,6 +96,8 @@
 		202C2ACE2909796900388081 /* GGWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGWebViewController.swift; sourceTree = "<group>"; };
 		202C2AD0290ADA2500388081 /* GGWeakHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGWeakHandler.swift; sourceTree = "<group>"; };
 		204BC984259782000014C96B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeHeaderView.swift; sourceTree = "<group>"; };
+		205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGHeaderModel.swift; sourceTree = "<group>"; };
 		2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainListVC.swift; sourceTree = "<group>"; };
 		2084F058290E669C002F47C3 /* LoginDomainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainCell.swift; sourceTree = "<group>"; };
 		20B5AA5F29002C5100208992 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -279,6 +283,30 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		205F4F57292D189000113D5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		205F4F58292D189800113D5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		205F4F59292D189D00113D5F /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				20B5AA6C2900337400208992 /* MeViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		20B5AA63290032CB00208992 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +417,9 @@
 		20F265092903958700DFCB43 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				20B5AA6C2900337400208992 /* MeViewController.swift */,
+				205F4F59292D189D00113D5F /* VC */,
+				205F4F58292D189800113D5F /* Model */,
+				205F4F57292D189000113D5F /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -625,6 +655,7 @@
 				20B5AA772900483000208992 /* Constant.swift in Sources */,
 				20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */,
 				20B5AA692900335400208992 /* ChatViewController.swift in Sources */,
+				205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */,
 				204BC985259782000014C96B /* UIView+Extension.swift in Sources */,
 				20B5AA6D2900337400208992 /* MeViewController.swift in Sources */,
 				20F2650C2903981B00DFCB43 /* LoginVC.swift in Sources */,
@@ -632,6 +663,7 @@
 				20DDD5D025AB41C0002E5E00 /* NetworkTool.swift in Sources */,
 				20B5AA712900381C00208992 /* RootViewController.swift in Sources */,
 				201C7CB3258DD0A80081BF3E /* AppDelegate.swift in Sources */,
+				205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */,
 				20B5AA672900334200208992 /* HomeViewController.swift in Sources */,
 				20BF400725AA02AE004DEF31 /* LoginViewController.swift in Sources */,
 				201C7CB5258DD0A80081BF3E /* SceneDelegate.swift in Sources */,
