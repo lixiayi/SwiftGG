@@ -23,6 +23,8 @@
 		2025548A25A4A5E100776700 /* MJRefreshVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025548925A4A5E100776700 /* MJRefreshVC.swift */; };
 		202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C2ACE2909796900388081 /* GGWebViewController.swift */; };
 		202C2AD1290ADA2500388081 /* GGWeakHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C2AD0290ADA2500388081 /* GGWeakHandler.swift */; };
+		202FEEDE292E66D3001D7FEA /* GGMeCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEEDD292E66D3001D7FEA /* GGMeCell1.swift */; };
+		202FEEE0292E6B0F001D7FEA /* GGMeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEEDF292E6B0F001D7FEA /* GGMeCell2.swift */; };
 		204BC985259782000014C96B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC984259782000014C96B /* UIView+Extension.swift */; };
 		205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */; };
 		205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */; };
@@ -95,6 +97,8 @@
 		2025548925A4A5E100776700 /* MJRefreshVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshVC.swift; sourceTree = "<group>"; };
 		202C2ACE2909796900388081 /* GGWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGWebViewController.swift; sourceTree = "<group>"; };
 		202C2AD0290ADA2500388081 /* GGWeakHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGWeakHandler.swift; sourceTree = "<group>"; };
+		202FEEDD292E66D3001D7FEA /* GGMeCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeCell1.swift; sourceTree = "<group>"; };
+		202FEEDF292E6B0F001D7FEA /* GGMeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeCell2.swift; sourceTree = "<group>"; };
 		204BC984259782000014C96B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeHeaderView.swift; sourceTree = "<group>"; };
 		205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGHeaderModel.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */,
+				202FEEDD292E66D3001D7FEA /* GGMeCell1.swift */,
+				202FEEDF292E6B0F001D7FEA /* GGMeCell2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -643,6 +649,7 @@
 				2025547E25A4A4D700776700 /* RefreshView.swift in Sources */,
 				20B5AA6229002DC900208992 /* BaseTabBarController.swift in Sources */,
 				20B83BCC290549200007A64B /* GGRegular.swift in Sources */,
+				202FEEE0292E6B0F001D7FEA /* GGMeCell2.swift in Sources */,
 				20B5AA6F2900369300208992 /* BaseVC.swift in Sources */,
 				201846272903DD1D007B7C22 /* UIColor+Extension.swift in Sources */,
 				20CE172329149AF1001F946A /* GGTools.swift in Sources */,
@@ -653,6 +660,7 @@
 				20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */,
 				20F2650E2903986700DFCB43 /* RegisterVC.swift in Sources */,
 				20B5AA772900483000208992 /* Constant.swift in Sources */,
+				202FEEDE292E66D3001D7FEA /* GGMeCell1.swift in Sources */,
 				20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */,
 				20B5AA692900335400208992 /* ChatViewController.swift in Sources */,
 				205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */,
