@@ -9,6 +9,10 @@ import UIKit
 
 class MeViewController: BaseVC {
     
+    // MARK: - 数据源
+    lazy var dataArray : [[String : Any]] = [[String : Any]]()
+    lazy var imageArray : [[String : Any]] = [[String : Any]]()
+    
     var model: GGHeaderModel? = GGHeaderModel()
 
     lazy var headerView : GGMeHeaderView = {
@@ -41,12 +45,33 @@ class MeViewController: BaseVC {
     }
 }
 
+// MARK: - 初始化数据
 extension MeViewController
 {
     func initData()  {
+        //添加模型数据
         model?.postion = "中国GG信息/Line开发部"
         model?.name = "stoicer"
         model?.description = "这个家伙很难，什么都没留下"
+        
+        //添加标题数据
+        dataArray.append( ["0" : "GG钱包"])
+        dataArray.append( ["0" : "我的统计", "1":"通讯录", "2" : "邮箱"])
+        dataArray.append( ["0" : "缓存清理", "1":"网络状态", "2" : "关联账号", "3" : "设置"])
+        dataArray.append( ["0" : "我要反馈", "1":"关于", "2" : "帮助中心"])
+        
+        //添加图片数据
+        imageArray.append(["0" : "company_mine_wallet"])
+        imageArray.append(["0" : "company_mine_statistics",
+                           "1":"company_mine_switch_account",
+                           "2" : "company_mine_email"])
+        imageArray.append(["0" : "company_mine_clear_cache",
+                           "1":"company_mine_network_status",
+                           "2" : "company_mine_switch_account" ,
+                           "3" : "personal_mine_setting"])
+        imageArray.append(["0" : "company_mine_feedback",
+                           "1":"company_mine_about",
+                           "2" : "company_mine_help"])
     }
 }
 
@@ -66,7 +91,8 @@ extension MeViewController
     func layoutViews()
     {
         tableView.snp_makeConstraints { make in
-            make.top.bottom.left.right.equalTo(0)
+            make.top.left.right.equalTo(0)
+            make.bottom.equalTo(-kHomeIndicatorH)
         }
     }
 }
@@ -95,73 +121,37 @@ extension MeViewController : UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 0 {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: GGMeCell1ID) as! GGMeCell1
-            cell1.iconImageView.image = UIImage(named: "company_mine_wallet")
-            cell1.titleLabel.text = "GG钱包"
-            return  cell1
-        }
-        else if indexPath.section == 1 {
+        if indexPath.section == 1 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: GGMeCell2ID) as! GGMeCell2
+
+            let tj = dataArray[indexPath.section]["0"] as? String
             cell2.itemOneBtn.setImage(UIImage(named: "company_mine_statistics"), for: .normal)
-            cell2.itemOneBtn.setTitle("我的统计", for: .normal)
-            
+            cell2.itemOneBtn.setTitle(tj, for: .normal)
+             
+            let txl = dataArray[indexPath.section]["1"] as? String
             cell2.itemTwoBtn.setImage(UIImage(named: "company_mine_switch_account"), for: .normal)
-            cell2.itemTwoBtn.setTitle("通讯录", for: .normal)
+            cell2.itemTwoBtn.setTitle(txl, for: .normal)
             
+            let yx = dataArray[indexPath.section]["2"] as? String
             cell2.itemThreedBtn.setImage(UIImage(named: "company_mine_email"), for: .normal)
-            cell2.itemThreedBtn.setTitle("邮箱", for: .normal)
+            cell2.itemThreedBtn.setTitle(yx, for: .normal)
             
             return  cell2
-        } else if indexPath.section == 2 {
+        }
+        else
+        {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: GGMeCell1ID) as! GGMeCell1
             
-            if indexPath.row == 0
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_clear_cache")
-                cell1.titleLabel.text = "清理缓存"
-            }
-            else if indexPath.row == 1
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_network_status")
-                cell1.titleLabel.text = "网络状态"
-            }
-            else if indexPath.row == 2
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_switch_account")
-                cell1.titleLabel.text = "关联账号"
-            }
-            else if indexPath.row == 3
-            {
-                cell1.iconImageView.image = UIImage(named: "personal_mine_setting")
-                cell1.titleLabel.text = "设置"
-            }
+            //title
+            let title = dataArray[indexPath.section][String(indexPath.row)] as? String
+            cell1.titleLabel.text = title
+            
+            //image
+            let image = imageArray[indexPath.section][String(indexPath.row)] as? String
+            cell1.iconImageView.image = UIImage(named: image!)
             
             return  cell1
         }
-        else if indexPath.section == 3 {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: GGMeCell1ID) as! GGMeCell1
-            
-            if indexPath.row == 0
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_feedback")
-                cell1.titleLabel.text = "我要反馈"
-            }
-            else if indexPath.row == 1
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_about")
-                cell1.titleLabel.text = "关于"
-            }
-            else if indexPath.row == 2
-            {
-                cell1.iconImageView.image = UIImage(named: "company_mine_help")
-                cell1.titleLabel.text = "帮助中心"
-            }
-            return  cell1
-        }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

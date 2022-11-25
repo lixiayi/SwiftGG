@@ -113,7 +113,7 @@ extension GGMeHeaderView
         }
         
         rightArrow.snp_makeConstraints { make in
-            make.right.equalTo(self).offset(-10)
+            make.right.equalTo(self.snp_right).offset(-10)
             make.width.height.equalTo(16)
             make.top.equalTo(nameLabel)
         }

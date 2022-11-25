@@ -16,7 +16,7 @@ class GGMeCell1: UITableViewCell {
 
     lazy var iconImageView : UIImageView = {
         
-        let icon = UIImageView(image: UIImage(named: "default"))
+        let icon = UIImageView(image: UIImage(named: ""))
         icon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         icon.contentMode = .scaleAspectFit
         return icon
@@ -35,7 +35,7 @@ class GGMeCell1: UITableViewCell {
     lazy var rightBtn : UIButton =
     {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "default"), for: .normal)
+        btn.setImage(UIImage(named: "right"), for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         return btn
     }()
@@ -85,11 +85,11 @@ extension GGMeCell1
         titleLabel.snp_makeConstraints { make in
             make.left.equalTo(iconImageView.snp_right).offset(16)
             make.centerY.equalTo(iconImageView)
-            make.right.equalTo(rightBtn.left).offset(-16)
+            make.right.equalTo(rightBtn.snp_left).offset(-16)
         }
         
         rightBtn.snp_makeConstraints { make in
-            make.right.equalTo(-16);
+            make.right.equalTo(contentView).offset(-16)
             make.width.height.equalTo(kIconWidth)
             make.centerY.equalTo(iconImageView)
         }
