@@ -9,6 +9,8 @@ import UIKit
 
 
 let GGMeCell1ID = "GGMeCell1ID"
+let kIconWidth = 30
+let kIconHeight = 30
 
 class GGMeCell1: UITableViewCell {
 
@@ -76,8 +78,8 @@ extension GGMeCell1
     func layoutViews() {
         iconImageView.snp_makeConstraints { make in
             make.left.equalTo(16)
-            make.centerY.equalTo(0);
-            make.width.height.equalTo(44)
+            make.centerY.equalTo(contentView);
+            make.width.height.equalTo(kIconWidth)
         }
         
         titleLabel.snp_makeConstraints { make in
@@ -88,7 +90,7 @@ extension GGMeCell1
         
         rightBtn.snp_makeConstraints { make in
             make.right.equalTo(-16);
-            make.width.height.equalTo(44)
+            make.width.height.equalTo(kIconWidth)
             make.centerY.equalTo(iconImageView)
         }
     }
