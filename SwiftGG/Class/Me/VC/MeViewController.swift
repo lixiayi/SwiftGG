@@ -110,7 +110,7 @@ extension MeViewController : UITableViewDataSource, UITableViewDelegate
         if 0 == section || 1 == section  {
             return 1
         }
-        else if 1 == section
+        else if 2 == section
         {
             return 4
         }
@@ -161,11 +161,38 @@ extension MeViewController : UITableViewDataSource, UITableViewDelegate
             }
             else
             {
-                return 44
+                return GGMeCellH
             }
         }
         else {
-            return 44
+            return GGMeCellH
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sec = indexPath.section
+        let row = indexPath.row
+        if 2 == sec {
+            
+            //设置
+            switch row {
+            case 0:
+                print("0")
+            case 1:
+                print("1")
+            case 2:
+                print("2")
+            case 3:
+            
+                let vc = GGSetViewController()
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            
+                
+            default:
+                print("default select")
+            }
         }
     }
 }

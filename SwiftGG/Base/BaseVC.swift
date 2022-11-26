@@ -31,6 +31,10 @@ class BaseVC: UIViewController {
         self.navigationItem.hidesBackButton = true
     }
     
+    func hideTabbar(hide:Bool) {
+        self.tabBarController?.tabBar.isHidden = hide
+    }
+    
 
     /*
     // MARK: - Navigation

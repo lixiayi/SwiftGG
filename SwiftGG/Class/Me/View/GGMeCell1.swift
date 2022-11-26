@@ -11,12 +11,13 @@ import UIKit
 let GGMeCell1ID = "GGMeCell1ID"
 let kIconWidth = 30
 let kIconHeight = 30
+let GGMeCellH : CGFloat = 44
 
 class GGMeCell1: UITableViewCell {
 
     lazy var iconImageView : UIImageView = {
         
-        let icon = UIImageView(image: UIImage(named: ""))
+        let icon = UIImageView(image: UIImage(named: "default_avator"))
         icon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         icon.contentMode = .scaleAspectFit
         return icon

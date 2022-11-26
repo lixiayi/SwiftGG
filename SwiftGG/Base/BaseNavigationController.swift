@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BaseNavigationController: UINavigationController, UIGestureRecognizerDelegate {
     
@@ -32,8 +33,30 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //设置导航栏的颜色
-        self.navigationBar.barTintColor = UIColor.colorWithHex(hex:"#ccffcc")
+        //设置导航栏的颜色 在iOS15系统后需要这么设置
+        if #available(iOS 15, *) {
+            let apperance = UINavigationBarAppearance()
+            //添加背景色
+            apperance.backgroundColor = UIColor.colorWithHex(hex:"#ccffcc")
+            apperance.shadowColor = nil
+            apperance.shadowImage = UIImage()
+            
+            //设置字体颜色
+            apperance.titleTextAttributes = [.foregroundColor : UIColor.white]
+            
+            //设置正常和滑动时导航栏的样式
+            navigationBar.standardAppearance = apperance
+            navigationBar.scrollEdgeAppearance = apperance
+            navigationBar.compactAppearance = apperance
+            navigationBar.compactScrollEdgeAppearance = apperance
+        }
+        else
+        {
+            //兼容旧系统
+            self.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+            self.navigationBar.barTintColor = UIColor.colorWithHex(hex:"#ccffcc")
+        }
+        
         
         //自定义全屏右滑pop手势 https://www.jianshu.com/p/2e8d332c60ff?_t_t_t=0.9927985240701174
         guard let systemPopGesture = interactivePopGestureRecognizer else { return  }
