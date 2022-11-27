@@ -6,9 +6,24 @@
 //
 
 import UIKit
+import PKHUD
 
 class GGSetViewController: BaseVC {
 
+    fileprivate lazy var dataArray : [[String : Any]] = {
+        
+        var dataArray = [[String : String]]()
+        dataArray.append(["image" : "set_account_psw", "title" : "修改密码"])
+        dataArray.append(["image" : "set_assistant_notice", "title" : "小慧助手通知"])
+        dataArray.append(["image" : "set_newmessage_notice", "title" : "通知设置"])
+        dataArray.append(["image" : "set_device_record", "title" : "设备管理"])
+        dataArray.append(["image" : "set_reject_answer", "title" : "拒听设置"])
+        dataArray.append(["image" : "set_account_user_info_list", "title" : "个人信息手机清单"])
+        dataArray.append(["image" : "set_account_other_list", "title" : "第三方信息共享清单"])
+        dataArray.append(["image" : "set_account_cancel", "title" : "注销账号"])
+        return dataArray
+        
+    }()
     
     lazy var backgoundImageView : UIImageView = {
         let backgoundImageView = UIImageView(image: UIImage(named: "set_bg_center"))
@@ -16,17 +31,33 @@ class GGSetViewController: BaseVC {
         return backgoundImageView
     }()
     
+    
+    fileprivate lazy var tableView : UITableView = {
+        
+        let tableView = UITableView(frame: CGRect(x: 0, y: kNavgationBarHeight, width: kScreenWidth, height: kScreenHeight - 100), style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 50
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.register(GGSetCell.self, forCellReuseIdentifier: kGGSetCellID)
+        return tableView
+
+    }()
+    
+    
     lazy var logoutButton : UIButton = {
         let logoutButton = UIButton(type: .custom)
         logoutButton.layer.cornerRadius = 22;
         logoutButton.layer.masksToBounds = true
         logoutButton.setTitle("退出账号", for: .normal)
-        logoutButton.backgroundColor = UIColor.colorWithHex(hex:"#ccffcc")
-        logoutButton.setTitleColor(UIColor.blue, for: .normal)
+        logoutButton.backgroundColor = kAppThemeColor
+        logoutButton.setTitleColor(UIColor.white, for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
         return logoutButton
     }()
     
+    // MARK: - Life
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -54,6 +85,31 @@ class GGSetViewController: BaseVC {
 
 }
 
+// MARK: - UITableViewDataSource & UITableViewDelegate
+extension GGSetViewController : UITableViewDataSource, UITableViewDelegate
+{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: kGGSetCellID) as! GGSetCell
+        
+        let row = indexPath.row
+        let dict = dataArray[row] as? [String : String]
+
+        cell.imgView.image = UIImage(named: dict?["image"] ?? "default_avatar")
+        cell.titleLbl.text = dict?["title"]
+        //dict -> model
+        cell.model = GGSetModel.deserialize(from: dict, designatedPath: nil)
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+}
+
 // MARK: - UI
 extension GGSetViewController
 {
@@ -63,8 +119,10 @@ extension GGSetViewController
         
         self.navigationItem.leftBarButtonItem = backItem
     }
+    
     func setupViews() {
         view.addSubview(backgoundImageView)
+        view.addSubview(tableView)
         view.addSubview(logoutButton)
     }
     
@@ -73,6 +131,12 @@ extension GGSetViewController
             make.left.right.equalTo(0)
             make.top.equalTo(kNavgationBarHeight)
             make.bottom.equalTo(-kHomeIndicatorH)
+        }
+        
+        tableView.snp_makeConstraints { make in
+            make.left.right.equalTo(0)
+            make.top.equalTo(0)
+            make.bottom.equalTo(logoutButton.snp_top).offset(0)
         }
         
         logoutButton.snp_makeConstraints { make in
@@ -89,10 +153,18 @@ extension GGSetViewController
 {
     @objc func logoutAction() {
         print("logout...")
+        GGSetViewModel.loadData {
+            print("退出登录成功")
+            HUD.flash(.success)
+            let loginViewController:LoginVC = LoginVC()
+            let rootNav:BaseNavigationController = BaseNavigationController(rootViewController: loginViewController)
+            let window = GGTools.getCurrentWindow()
+            window?.rootViewController = rootNav;
+            window?.makeKeyAndVisible()
+        }
     }
     
     @objc func backAction() {
-        print("back...")
         self.navigationController?.popViewController(animated: true)
     }
 }

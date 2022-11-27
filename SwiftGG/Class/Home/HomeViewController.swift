@@ -13,9 +13,9 @@ class HomeViewController: BaseVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.red
         
-        self.navigationItem.title = "首页"
+        self.navigationItem.title = "Home"
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {

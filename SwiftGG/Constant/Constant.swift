@@ -13,6 +13,12 @@ let kNavgationBarHeight = 44.0
 let kStatusBarH : CGFloat = 20
 let kHomeIndicatorH : CGFloat = 34.0
 
+//APP主题色
+let kAppThemeColor = UIColor.colorWithHex(hex:"#108ee9")
+
+//cell分隔线颜色
+let kCellSepColor = UIColor.colorWithHex(hex: "#e1e2e3")
+
 /**************************  UserDefault用到Key  ***************************/
 let GGUserDefault = UserDefaults.standard
 

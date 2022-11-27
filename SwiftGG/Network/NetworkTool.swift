@@ -256,4 +256,29 @@ class NetworkTool {
         }
         
     }
+    
+    // MARK: - 退出登录
+    static func requestLoginOut(url:String, params:[String : Any]?,header:[String:String], successCallBack:successCallBack, failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, method: .get, parameters: params, headers:header).responseJSON { data in
+            guard data.result.isSuccess else {
+                return
+            }
+            guard let value = data.result.value as? [String : Any]  else {
+                return
+            }
+            
+            let json = JSON(value)
+            let status = json["code"]
+            if 0 == status
+            {
+                successCallBack?(value as Dictionary<String, AnyObject>)
+            }
+            else
+            {
+                failCallBack!(value as Dictionary<String, AnyObject>)
+            }
+        }
+        
+    }
 }

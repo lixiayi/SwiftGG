@@ -37,12 +37,12 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         if #available(iOS 15, *) {
             let apperance = UINavigationBarAppearance()
             //添加背景色
-            apperance.backgroundColor = UIColor.colorWithHex(hex:"#ccffcc")
+            apperance.backgroundColor = kAppThemeColor
             apperance.shadowColor = nil
             apperance.shadowImage = UIImage()
             
             //设置字体颜色
-            apperance.titleTextAttributes = [.foregroundColor : UIColor.white]
+            apperance.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont.systemFont(ofSize: 17)]
             
             //设置正常和滑动时导航栏的样式
             navigationBar.standardAppearance = apperance
@@ -54,7 +54,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         {
             //兼容旧系统
             self.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-            self.navigationBar.barTintColor = UIColor.colorWithHex(hex:"#ccffcc")
+            self.navigationBar.barTintColor = kAppThemeColor
         }
         
         

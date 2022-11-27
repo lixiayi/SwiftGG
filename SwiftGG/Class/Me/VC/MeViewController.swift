@@ -43,6 +43,16 @@ class MeViewController: BaseVC {
         layoutViews()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 // MARK: - 初始化数据
@@ -91,7 +101,8 @@ extension MeViewController
     func layoutViews()
     {
         tableView.snp_makeConstraints { make in
-            make.top.left.right.equalTo(0)
+            make.top.equalTo(-kNavgationBarHeight)
+            make.left.right.equalTo(0)
             make.bottom.equalTo(-kHomeIndicatorH)
         }
     }

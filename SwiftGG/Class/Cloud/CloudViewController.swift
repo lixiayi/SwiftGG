@@ -13,7 +13,8 @@ class CloudViewController: BaseVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.green
+        self.navigationItem.title = "Cloud"
+        view.backgroundColor = .white
     }
     
 

@@ -13,7 +13,8 @@ class ChatViewController: BaseVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.blue
+        self.navigationItem.title = "Chat"
+        view.backgroundColor = .white
     }
     
 
