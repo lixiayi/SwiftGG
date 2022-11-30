@@ -30,6 +30,7 @@
 		204BB1D329335FE8003C4BA8 /* GGSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BB1D229335FE8003C4BA8 /* GGSetModel.swift */; };
 		204BB1D629336253003C4BA8 /* GGSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BB1D529336253003C4BA8 /* GGSetViewModel.swift */; };
 		204BC985259782000014C96B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC984259782000014C96B /* UIView+Extension.swift */; };
+		20536B502937057900DE204F /* UIBarButtonItem+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B4F2937057900DE204F /* UIBarButtonItem+Extenstion.swift */; };
 		205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */; };
 		205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */; };
 		2084F057290E63EA002F47C3 /* LoginDomainListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */; };
@@ -108,6 +109,7 @@
 		204BB1D229335FE8003C4BA8 /* GGSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGSetModel.swift; sourceTree = "<group>"; };
 		204BB1D529336253003C4BA8 /* GGSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGSetViewModel.swift; sourceTree = "<group>"; };
 		204BC984259782000014C96B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		20536B4F2937057900DE204F /* UIBarButtonItem+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extenstion.swift"; sourceTree = "<group>"; };
 		205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeHeaderView.swift; sourceTree = "<group>"; };
 		205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGHeaderModel.swift; sourceTree = "<group>"; };
 		2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainListVC.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				204BC984259782000014C96B /* UIView+Extension.swift */,
 				201846262903DD1D007B7C22 /* UIColor+Extension.swift */,
+				20536B4F2937057900DE204F /* UIBarButtonItem+Extenstion.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				20CE172329149AF1001F946A /* GGTools.swift in Sources */,
 				2084F059290E669C002F47C3 /* LoginDomainCell.swift in Sources */,
 				202C2ACF2909796900388081 /* GGWebViewController.swift in Sources */,
+				20536B502937057900DE204F /* UIBarButtonItem+Extenstion.swift in Sources */,
 				201C7CB7258DD0A80081BF3E /* ViewController.swift in Sources */,
 				20B83BC82904DD020007A64B /* GGTextFiledView.swift in Sources */,
 				20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */,

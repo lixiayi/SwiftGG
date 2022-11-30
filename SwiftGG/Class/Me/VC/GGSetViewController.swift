@@ -114,10 +114,17 @@ extension GGSetViewController : UITableViewDataSource, UITableViewDelegate
 extension GGSetViewController
 {
     func setupNavigationBar() {
-        self.navigationItem.title = "设置"
-        let backItem = UIBarButtonItem(image: UIImage(named: "back"), style: .done, target: self, action: #selector(backAction))
         
-        self.navigationItem.leftBarButtonItem = backItem
+        //设置title
+        navigationItem.title = "设置"
+        
+        //设置返回item
+        let backItem = UIBarButtonItem(image: UIImage(named: "back"), style: .done, target: self, action: #selector(backAction))
+        navigationItem.leftBarButtonItem = backItem
+//
+        //设置右侧item
+        let rightItem =  UIBarButtonItem.createItem(normalImageName: "more", hightlightImageName: "more", size: CGSize(width: 40, height: 30))
+        navigationItem.rightBarButtonItem = rightItem
     }
     
     func setupViews() {
