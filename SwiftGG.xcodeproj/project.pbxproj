@@ -31,6 +31,8 @@
 		204BB1D629336253003C4BA8 /* GGSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BB1D529336253003C4BA8 /* GGSetViewModel.swift */; };
 		204BC985259782000014C96B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BC984259782000014C96B /* UIView+Extension.swift */; };
 		20536B502937057900DE204F /* UIBarButtonItem+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B4F2937057900DE204F /* UIBarButtonItem+Extenstion.swift */; };
+		20536B5229378C9C00DE204F /* GGMeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B5129378C9C00DE204F /* GGMeViewModel.swift */; };
+		20536B542937951500DE204F /* GGMeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B532937951500DE204F /* GGMeModel.swift */; };
 		205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */; };
 		205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */; };
 		2084F057290E63EA002F47C3 /* LoginDomainListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */; };
@@ -110,6 +112,8 @@
 		204BB1D529336253003C4BA8 /* GGSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGSetViewModel.swift; sourceTree = "<group>"; };
 		204BC984259782000014C96B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		20536B4F2937057900DE204F /* UIBarButtonItem+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extenstion.swift"; sourceTree = "<group>"; };
+		20536B5129378C9C00DE204F /* GGMeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeViewModel.swift; sourceTree = "<group>"; };
+		20536B532937951500DE204F /* GGMeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeModel.swift; sourceTree = "<group>"; };
 		205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeHeaderView.swift; sourceTree = "<group>"; };
 		205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGHeaderModel.swift; sourceTree = "<group>"; };
 		2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainListVC.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				204BB1D529336253003C4BA8 /* GGSetViewModel.swift */,
+				20536B5129378C9C00DE204F /* GGMeViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 			children = (
 				205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */,
 				204BB1D229335FE8003C4BA8 /* GGSetModel.swift */,
+				20536B532937951500DE204F /* GGMeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 			files = (
 				202C2AD1290ADA2500388081 /* GGWeakHandler.swift in Sources */,
 				20132B93290E1A5E00F68697 /* LoginModel.swift in Sources */,
+				20536B5229378C9C00DE204F /* GGMeViewModel.swift in Sources */,
 				20D64B9C29176D3700B44F38 /* SMSViewController.swift in Sources */,
 				204BB1D329335FE8003C4BA8 /* GGSetModel.swift in Sources */,
 				2025547E25A4A4D700776700 /* RefreshView.swift in Sources */,
@@ -685,6 +692,7 @@
 				20DDD5C125AB37F1002E5E00 /* LoginRecommCollCell.swift in Sources */,
 				20F2650E2903986700DFCB43 /* RegisterVC.swift in Sources */,
 				204BB1CF2931B47A003C4BA8 /* GGSetViewController.swift in Sources */,
+				20536B542937951500DE204F /* GGMeModel.swift in Sources */,
 				20B5AA772900483000208992 /* Constant.swift in Sources */,
 				202FEEDE292E66D3001D7FEA /* GGMeCell1.swift in Sources */,
 				20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */,

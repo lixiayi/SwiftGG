@@ -19,8 +19,8 @@ let kWisdom_GetRecommend = "/wisdom/api/chameleonChatserver/queryForRecommend"
 
 
 // MARK: - 登录相关
-//登录相关的BaseUrl
-let GG_LOGIN_BASE_URL = "https://chatoc.onecloud.cn"
+/** chatserServerUrl*/
+let GG_ChatServer_Base_Url = "https://chatoc.onecloud.cn"
 
 let GG_HotTub_Code_Base = "https://appcc.onecloud.cn"
 
@@ -280,5 +280,29 @@ class NetworkTool {
             }
         }
         
+    }
+    
+    // MARK: - 请求个人名片
+    static func requestPersonCardDetail(url:String, params:[String : Any]?,header:[String:String], successCallBack:successCallBack, failCallBack:failureCallBack)
+    {
+        Alamofire.request(url, method: .get, parameters: params, headers:header).responseJSON { data in
+            guard data.result.isSuccess else {
+                return
+            }
+            guard let value = data.result.value as? [String : Any]  else {
+                return
+            }
+            
+            let json = JSON(value)
+            let status = json["code"]
+            if 0 == status
+            {
+                successCallBack?(value as Dictionary<String, AnyObject>)
+            }
+            else
+            {
+                failCallBack!(value as Dictionary<String, AnyObject>)
+            }
+        }
     }
 }

@@ -14,8 +14,10 @@ class MeViewController: BaseVC {
     lazy var imageArray : [[String : Any]] = [[String : Any]]()
     
     var model: GGHeaderModel? = GGHeaderModel()
+    
+    var viewModel : GGMeViewModel? = GGMeViewModel()
 
-    lazy var headerView : GGMeHeaderView = {
+    lazy var headerView : GGMeHeaderView? = {
         let header = GGMeHeaderView()
         header.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 160)
         header.model = model
@@ -41,6 +43,9 @@ class MeViewController: BaseVC {
         initData()
         setupView()
         layoutViews()
+        
+        //请求个人名片
+        loadPersonCardData()
         
     }
     
@@ -207,3 +212,20 @@ extension MeViewController : UITableViewDataSource, UITableViewDelegate
         }
     }
 }
+
+// MARK: - 请求数据
+extension MeViewController
+{
+    // MARK: - loadData
+    func loadPersonCardData() {
+        GGMeViewModel.loadPersonCardData { data in
+        
+            guard let dict = data["data"] as? [String : Any] else { return }
+            
+            
+            print(dict);
+            
+        }
+    }
+}
+

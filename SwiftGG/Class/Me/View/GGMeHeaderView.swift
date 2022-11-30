@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class GGMeHeaderView: UIView {
+
+    //点击回调
+    var tapGesBlock:(()->())?
     
     //Model
     var model: GGHeaderModel? {
@@ -72,6 +75,7 @@ class GGMeHeaderView: UIView {
     init() {
         super.init(frame: .zero)
         self.setupView()
+        self.addGesture()
         self.layoutViews()
     }
     
@@ -91,6 +95,12 @@ extension GGMeHeaderView
         self.addSubview(positionLabel)
         self.addSubview(rightArrow)
         self.addSubview(desLabel)
+    }
+    
+    func addGesture()
+    {
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(tapGesAction))
+        self.addGestureRecognizer(tapGes)
     }
 }
 
@@ -124,5 +134,11 @@ extension GGMeHeaderView
             make.height.equalTo(22)
             make.right.equalTo(nameLabel)
         }
+    }
+    
+    // MARK: - Action
+    @objc func tapGesAction()
+    {
+        self.tapGesBlock?()
     }
 }
