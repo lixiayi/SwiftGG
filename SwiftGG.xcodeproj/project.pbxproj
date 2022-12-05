@@ -34,7 +34,6 @@
 		20536B5229378C9C00DE204F /* GGMeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B5129378C9C00DE204F /* GGMeViewModel.swift */; };
 		20536B542937951500DE204F /* GGMeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20536B532937951500DE204F /* GGMeModel.swift */; };
 		205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */; };
-		205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */; };
 		2084F057290E63EA002F47C3 /* LoginDomainListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */; };
 		2084F059290E669C002F47C3 /* LoginDomainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084F058290E669C002F47C3 /* LoginDomainCell.swift */; };
 		20B5AA6029002C5100208992 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5AA5F29002C5100208992 /* BaseNavigationController.swift */; };
@@ -115,7 +114,6 @@
 		20536B5129378C9C00DE204F /* GGMeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeViewModel.swift; sourceTree = "<group>"; };
 		20536B532937951500DE204F /* GGMeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeModel.swift; sourceTree = "<group>"; };
 		205F4F5D292D197A00113D5F /* GGMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGMeHeaderView.swift; sourceTree = "<group>"; };
-		205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGHeaderModel.swift; sourceTree = "<group>"; };
 		2084F056290E63E9002F47C3 /* LoginDomainListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainListVC.swift; sourceTree = "<group>"; };
 		2084F058290E669C002F47C3 /* LoginDomainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomainCell.swift; sourceTree = "<group>"; };
 		20B5AA5F29002C5100208992 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 		205F4F58292D189800113D5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				205F4F5F292D1E8D00113D5F /* GGHeaderModel.swift */,
 				204BB1D229335FE8003C4BA8 /* GGSetModel.swift */,
 				20536B532937951500DE204F /* GGMeModel.swift */,
 			);
@@ -698,7 +695,6 @@
 				20D64B9E2917711B00B44F38 /* SMSView.swift in Sources */,
 				204BB1D12933581A003C4BA8 /* GGSetCell.swift in Sources */,
 				20B5AA692900335400208992 /* ChatViewController.swift in Sources */,
-				205F4F60292D1E8D00113D5F /* GGHeaderModel.swift in Sources */,
 				204BC985259782000014C96B /* UIView+Extension.swift in Sources */,
 				20B5AA6D2900337400208992 /* MeViewController.swift in Sources */,
 				20F2650C2903981B00DFCB43 /* LoginVC.swift in Sources */,

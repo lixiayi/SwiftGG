@@ -54,6 +54,8 @@ class GGMeModel : HandyJSON
     
     var email: String = ""
     
+    var introduction: String = ""
+    
     required init() {
         
     }

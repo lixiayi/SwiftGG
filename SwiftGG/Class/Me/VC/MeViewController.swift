@@ -12,16 +12,11 @@ class MeViewController: BaseVC {
     // MARK: - 数据源
     lazy var dataArray : [[String : Any]] = [[String : Any]]()
     lazy var imageArray : [[String : Any]] = [[String : Any]]()
-    
-    var model: GGHeaderModel? = GGHeaderModel()
-    
     var viewModel : GGMeViewModel? = GGMeViewModel()
 
     lazy var headerView : GGMeHeaderView? = {
         let header = GGMeHeaderView()
         header.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 160)
-        header.model = model
-    
         return header
     }()
     
@@ -64,11 +59,6 @@ class MeViewController: BaseVC {
 extension MeViewController
 {
     func initData()  {
-        //添加模型数据
-        model?.postion = "中国GG信息/Line开发部"
-        model?.name = "stoicer"
-        model?.description = "这个家伙很难，什么都没留下"
-        
         //添加标题数据
         dataArray.append( ["0" : "GG钱包"])
         dataArray.append( ["0" : "我的统计", "1":"通讯录", "2" : "邮箱"])
@@ -218,13 +208,8 @@ extension MeViewController
 {
     // MARK: - loadData
     func loadPersonCardData() {
-        GGMeViewModel.loadPersonCardData { data in
-        
-            guard let dict = data["data"] as? [String : Any] else { return }
-            
-            
-            print(dict);
-            
+        viewModel?.loadPersonCardData {[weak self] in
+            self?.headerView?.model = self?.viewModel?.model
         }
     }
 }

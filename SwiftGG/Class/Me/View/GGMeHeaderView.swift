@@ -14,16 +14,23 @@ class GGMeHeaderView: UIView {
     var tapGesBlock:(()->())?
     
     //Model
-    var model: GGHeaderModel? {
+    var model: GGMeModel? {
         didSet
         {
-            if let ava = model?.avatar {
+            if let ava = model?.avatar_url {
                 avatar.setImageWith(URL(string: ava), placeholder: UIImage(named: "AppIcon"))
             }
             
             nameLabel.text = model?.name
-            positionLabel.text = model?.postion
-            desLabel.text = model?.description
+            positionLabel.text = model?.position
+            
+            if model?.introduction.count ?? 0 > 0 {
+                desLabel.text = model?.introduction
+            }
+            else
+            {
+                desLabel.text = kMeNoUserDescription
+            }
         }
     }
 

@@ -13,6 +13,8 @@ let kNavgationBarHeight = 44.0
 let kStatusBarH : CGFloat = 20
 let kHomeIndicatorH : CGFloat = 34.0
 
+let kMeNoUserDescription = "这个家伙很懒，什么都没留下"
+
 //APP主题色
 let kAppThemeColor = UIColor.colorWithHex(hex:"#108ee9")
 
