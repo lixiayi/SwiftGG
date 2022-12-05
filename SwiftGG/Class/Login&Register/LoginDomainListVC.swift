@@ -185,7 +185,11 @@ extension LoginDomainListVC {
                       "platform_app_version" : bundleVersion as Any]
 
         NetworkTool.requestLastLoginWithHeader(url: url, parameter: params, header: GG_NetWorkTool_Headers) { data in
-            //缓存数据
+            
+            //保存用户域名信息数据
+            GGDataManager.saveDomainInfo(tempDic)
+            
+            //缓存登录后用户数据
             GGDataManager.saveUserInfo(dic: data as! [String : AnyObject])
             
             //进入rootVC
