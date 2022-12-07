@@ -20,25 +20,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         
         let windowScene = scene as? UIWindowScene
-            if let windowScene = windowScene {
-                window = UIWindow(windowScene: windowScene)
-            }
+        if let windowScene = windowScene {
+            window = UIWindow(windowScene: windowScene)
+        }
 
-            window?.frame = (windowScene?.coordinateSpace.bounds)!
-//            let storyBoard : UIStoryboard = UIStoryboard(name: String (describing: "Main"), bundle:nil)
-//            let rootVC = storyBoard.instantiateViewController(identifier: "Main")
-//            let nav = UINavigationController(rootViewController: rootVC)
-        
-//        let tabVC = RootViewController()
-//            window?.rootViewController = tabVC;
-//            window?.makeKeyAndVisible()
-        
-        let loginViewController:LoginVC = LoginVC()
-        let rootNav:BaseNavigationController = BaseNavigationController(rootViewController: loginViewController)
+        window?.frame = (windowScene?.coordinateSpace.bounds)!
+
+        if GGUserDefault.object(forKey: kGGToken) != nil &&
+            GGUserDefault.object(forKey: kChatServerUrl) != nil
+        {
+            //自动登录
+            let mainTabbarController = RootViewController()
+            window?.rootViewController = mainTabbarController;
+        }
+        else
+        {
+            let loginViewController:LoginVC = LoginVC()
+            let rootNav:BaseNavigationController = BaseNavigationController(rootViewController: loginViewController)
             window?.rootViewController = rootNav;
-            window?.makeKeyAndVisible()
+        }
         
-            guard let _ = (scene as? UIWindowScene) else { return }
+        window?.makeKeyAndVisible()
+        
+        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

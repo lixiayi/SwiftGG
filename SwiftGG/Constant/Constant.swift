@@ -72,3 +72,6 @@ let kBranchCompaniesInfo = "kBranchCompaniesInfo"
 //权限列表
 let kAuth_list = "kAuth_list"
 
+//kChatServerUrl
+let kChatServerUrl = "kChatServerUrl"
+

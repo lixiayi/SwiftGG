@@ -163,6 +163,11 @@ extension GGSetViewController
         GGSetViewModel.loadData {
             print("退出登录成功")
             HUD.flash(.success)
+            
+            //删除userDefault跟用户有关的数据
+            let domain : String? = Bundle.main.bundleIdentifier
+            GGUserDefault.removePersistentDomain(forName: domain!)
+            
             let loginViewController:LoginVC = LoginVC()
             let rootNav:BaseNavigationController = BaseNavigationController(rootViewController: loginViewController)
             let window = GGTools.getCurrentWindow()

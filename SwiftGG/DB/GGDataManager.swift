@@ -77,7 +77,7 @@ extension GGDataManager
         GGUserDefault.set(dic["powerman_api"], forKey: "powerman_api")
         GGUserDefault.set(dic["chath5_url"], forKey: "chath5_url")
         
-        GGUserDefault.set(dic["chatserver_api"], forKey: "chatserver_api")
+        GGUserDefault.set(dic["chatserver_api"], forKey: kChatServerUrl)
     
         GGUserDefault.set(dic["point_api"], forKey: "point_api")
         GGUserDefault.set(dic["wssUrl"], forKey: "wssUrl")
