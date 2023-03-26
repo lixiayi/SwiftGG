@@ -9,6 +9,7 @@ import UIKit
 
 let GG_LOGOUT_URL =  "/business/user/logout?"
 
+typealias GGSuccessBlock = ()->(Data);
 
 class GGSetViewModel {
     

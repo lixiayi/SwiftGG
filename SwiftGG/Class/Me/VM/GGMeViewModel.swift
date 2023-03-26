@@ -28,6 +28,8 @@ class GGMeViewModel
             
             //字典->模型
             self.model = GGMeModel.deserialize(from: dict, designatedPath: nil)
+            
+            //回调
         
             callBack()
             print(data)
