@@ -108,6 +108,15 @@ extension GGSetViewController : UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row;
+        let cellData = dataArray[row] as? [String : String];
+        if cellData?["title"] == "修改密码" {
+            let chanagePwdVC = GGChangPwdVC()
+            self.navigationController?.pushViewController(chanagePwdVC, animated: true)
+        }
+    }
 }
 
 // MARK: - UI

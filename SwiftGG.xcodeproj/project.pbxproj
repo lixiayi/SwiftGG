@@ -55,6 +55,7 @@
 		20DDD5C225AB37F1002E5E00 /* LoginRecommCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */; };
 		20DDD5C725AB38AE002E5E00 /* LoginRecomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */; };
 		20DDD5D025AB41C0002E5E00 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDD5CF25AB41BF002E5E00 /* NetworkTool.swift */; };
+		20E1E9A929CFDCC8001C7F88 /* GGChangPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E1E9A829CFDCC8001C7F88 /* GGChangPwdVC.swift */; };
 		20F2650C2903981B00DFCB43 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F2650B2903981B00DFCB43 /* LoginVC.swift */; };
 		20F2650E2903986700DFCB43 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F2650D2903986700DFCB43 /* RegisterVC.swift */; };
 		20F4E84B25A9F7A1004F2FC5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F4E84925A9F7A1004F2FC5 /* LoginViewController.xib */; };
@@ -135,6 +136,7 @@
 		20DDD5C025AB37F1002E5E00 /* LoginRecommCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginRecommCollCell.xib; sourceTree = "<group>"; };
 		20DDD5C625AB38AE002E5E00 /* LoginRecomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecomModel.swift; sourceTree = "<group>"; };
 		20DDD5CF25AB41BF002E5E00 /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
+		20E1E9A829CFDCC8001C7F88 /* GGChangPwdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGChangPwdVC.swift; sourceTree = "<group>"; };
 		20F2650B2903981B00DFCB43 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		20F2650D2903986700DFCB43 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		20F4E84925A9F7A1004F2FC5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				20B5AA6C2900337400208992 /* MeViewController.swift */,
 				204BB1CE2931B47A003C4BA8 /* GGSetViewController.swift */,
+				20E1E9A829CFDCC8001C7F88 /* GGChangPwdVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				20B5AA712900381C00208992 /* RootViewController.swift in Sources */,
 				201C7CB3258DD0A80081BF3E /* AppDelegate.swift in Sources */,
 				205F4F5E292D197A00113D5F /* GGMeHeaderView.swift in Sources */,
+				20E1E9A929CFDCC8001C7F88 /* GGChangPwdVC.swift in Sources */,
 				20B5AA672900334200208992 /* HomeViewController.swift in Sources */,
 				204BB1D629336253003C4BA8 /* GGSetViewModel.swift in Sources */,
 				20BF400725AA02AE004DEF31 /* LoginViewController.swift in Sources */,
